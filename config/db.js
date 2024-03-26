@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const connection = mongoose.createConnection('mongodb+srv://mouadchiali:mouadchiali@clustertestprojet.n7r4egf.mongodb.net/userklinker').on('open',()=>{
+const connection = mongoose.createConnection('mongodb+srv://mouad:mouadchiali@projets4.o9xgxx9.mongodb.net/Patients').on('open',()=>{
     console.log("connected")
 }).on('error',()=>{
     console.log("not connected")
