@@ -36,7 +36,7 @@ const userschema =new Schema({
         required:true,
      },
      Grp:{
-      type:String,
+      type:Boolean,
       required:true,
    },
 

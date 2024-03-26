@@ -1,9 +1,14 @@
 const dbq=require('../models/models')
+const Jwt=require('jsonwebtoken')
+const bcrypted = require('bcrypt')
 class serviceuser{
+     
      static async registeruser(email,fullname,phonenumber,idnumber,desc,Skills,grade){
        try{
+         
        const par=new dbq({email,fullname,phonenumber,idnumber,desc,Skills,grade})
        return await par.save()
+       
 
        }catch(err){console.log(err)}
      }
@@ -11,6 +16,7 @@ class serviceuser{
 
       
     }
-   
+  
+    
 
 module.exports=serviceuser
