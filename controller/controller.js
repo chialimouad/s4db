@@ -6,10 +6,7 @@ exports.register= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
     const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
-      if(!usercontrol){
-        return res.status(400).json({msg:"Email Exist"})
-
-      }
+   
       const hashpas=bcrypted.hash(password,10)
       let user1 =new dbq({
         email,
