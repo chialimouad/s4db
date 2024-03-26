@@ -40,7 +40,7 @@ const userschema =new Schema({
       required:true,
    },
          maladie:{
-      type:string,
+      type:Boolean,
       required:true,
    },
 
