@@ -44,5 +44,5 @@ const userschema =new Schema({
 })
 
 
-const user=db.model('user',userschema)
-module.exports=user
+const Patients=db.model('Patients',userschema)
+module.exports=Patients
