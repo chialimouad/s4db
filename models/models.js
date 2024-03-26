@@ -39,6 +39,10 @@ const userschema =new Schema({
       type:Boolean,
       required:true,
    },
+         maladie:{
+      type:Boolean,
+      required:true,
+   },
 
 
 })

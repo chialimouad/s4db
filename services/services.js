@@ -1,14 +1,9 @@
 const dbq=require('../models/models')
-const Jwt=require('jsonwebtoken')
-const bcrypted = require('bcrypt')
 class serviceuser{
-     
-     static async registeruser(email,fullname,phonenumber,idnumber,desc,Skills,grade){
+     static async registeruser(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
        try{
-         
-       const par=new dbq({email,fullname,phonenumber,idnumber,desc,Skills,grade})
+       const par=new dbq({email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
        return await par.save()
-       
 
        }catch(err){console.log(err)}
      }
@@ -16,7 +11,6 @@ class serviceuser{
 
       
     }
-  
-    
+   
 
 module.exports=serviceuser
