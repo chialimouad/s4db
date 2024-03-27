@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const db=require('../config/dbdoctor')
+const db=require('../config/db')
 const { Schema }=mongoose
 const userschema =new Schema({
     email :{
@@ -10,38 +10,38 @@ const userschema =new Schema({
     },
     fullname :{
         type:String,
-        required:true,
+        required:false,
        
     },
     phonenumber:{
        type:Number,
-       required:true,
+       required:false,
        unique:true,
     },
     idpulse:{
         type:String,
-        required:true,
+        required:false,
         unique:true,
      },
      willaya:{
         type:String,
-        required:true,
+        required:false,
      },
      password:{
         type:String,
-        required:true,
+        required:false,
      },
      Age:{
         type:Number,
-        required:true,
+        required:false,
      },
      Grp:{
       type:String,
-      required:true,
+      required:false,
    },
-         maladie:{
-      type:Boolean,
-      required:true,
+      maladie:{
+      type:String,
+      required:false,
    },
 
 
