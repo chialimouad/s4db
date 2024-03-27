@@ -34,9 +34,9 @@ exports.logindoc= async(req,res,next)=>{
         return res.status(400).json({msg:"incorect"})
       }
     
-    
-      
-    res.json({status:true,success:"user succsefully"})
+    let tokendata ={id:doclogin._id,email:doclogin.email}
+      var token =await docserv.generatetoken(tokendata,"mouadio","1h")
+    res.json({status:true,success:"user succsefully",token:token})
      
 }catch(err){console.log(err)}}
 // exports.login= async(req,res,next)=>{
