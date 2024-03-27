@@ -10,18 +10,8 @@ exports.register= async(req,res,next)=>{
     const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
    
       const hashpas=bcrypted.hash(password,10)
-      let user1 =new dbq({
-        email,
-        password:hashpas,
-        fullname,
-        phonenumber,
-        willaya,
-        password,
-        Age,
-        Grp,
-        maladie,
-      })
-      user1=new user1.save()
+               password =hashpas
+      usercontrol=new usercontrol.save()
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
@@ -32,19 +22,8 @@ exports.registerdoctor= async(req,res,next)=>{
     const doccontrol =await docserv.registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password)
    
     const hashpas=bcrypted.hash(password,10)
-    let doc1 =new dbqdoc({
-      email,
-      password:hashpas,
-      fullname,
-      phonenumber,
-      willaya,
-      password,
-      Age,
-      Specialite,
-      
-      
-    })
-    doc1=new doc1.save()
+               password =hashpas
+    doccontrol=new doccontrol.save()
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
@@ -52,11 +31,11 @@ exports.logindoc= async(req,res,next)=>{
     try{
     const {email,password}=req.body
     const doclogin =await dbqdoc.findOne({email})
-    if(!doc1){
+    if(!doclogin){
         return res.status(400).json({msg:"Email Exist"})
 
       }
-      const ismatch = await bcrypted.compare(password,doc1.password);
+      const ismatch = await bcrypted.compare(password,doclogin.password);
       if(!ismatch){
         return res.status(400).json({msg:"incorect"})
       }
@@ -70,11 +49,11 @@ exports.login= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
     const userlogin =await dbq.findOne({email})
-    if(!usercontrol){
+    if(!userlogin){
         return res.status(400).json({msg:"Email Exist"})
 
       }
-      const ismatch = await bcrypted.compare(password,user1.password);
+      const ismatch = await bcrypted.compare(password,userlogin.password);
       if(!ismatch){
         return res.status(400).json({msg:"incorect"})
       }
