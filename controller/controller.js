@@ -6,8 +6,8 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 exports.register= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,idpulse,willaya,password,age,Grp,maladie}=req.body
-    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,age,Grp,maladie)
+    const {email,fullname,phonenumber,idpulse,willaya,password,age,grp,maladie}=req.body
+    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,age,grp,maladie)
    
       const hashpas=bcrypted.hash(password,10)
                password =hashpas
