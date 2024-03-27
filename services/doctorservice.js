@@ -1,9 +1,9 @@
 const dbqa=require('../models/doctormodel')
 
 class servicedoctor{
-    static async registerdoctor(email,fullname,phonenumber,specialite,willaya,Age,password){
+    static async registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password){
       try{
-      const par=new dbqa({email,fullname,phonenumber,specialite,willaya,Age,password})
+      const par=new dbqa({email,fullname,phonenumber,Specialite,willaya,Age,password})
       return await par.save()
 
       }catch(err){console.log(err)}
