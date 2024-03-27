@@ -22,24 +22,23 @@ exports.registerdoctor= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
-// exports.logindoc= async(req,res,next)=>{
-//     try{
-//     const {email,password}=req.body
-//     const doclogin =await dbqdoc.findOne({email})
-//     if(!doc1){
-//         return res.status(400).json({msg:"Email Exist"})
+exports.logindoc= async(req,res,next)=>{
+    try{
+    const {email,password}=req.body
+    const doclogin =await dbqdoc.findOne({email})
+    if(!doclogin){
+        return res.status(400).json({msg:"Email Exist"})
 
-//       }
-//       const ismatch = await bcrypted.compare(password,doc1.password);
-//       if(!ismatch){
-//         return res.status(400).json({msg:"incorect"})
-//       }
+      }
+      if(!(password==doclogin.password)){
+        return res.status(400).json({msg:"incorect"})
+      }
     
     
       
-//     res.json({status:true,success:"user succsefully"})
+    res.json({status:true,success:"user succsefully"})
      
-// }catch(err){console.log(err)}}
+}catch(err){console.log(err)}}
 // exports.login= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
