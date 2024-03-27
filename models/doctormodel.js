@@ -18,7 +18,7 @@ const userschema =new Schema({
        required:true,
        unique:true,
     },
-    Specialite:{
+    specialite:{
         type:String,
         required:true,
      },
@@ -26,7 +26,7 @@ const userschema =new Schema({
         type:String,
         required:true,
      },
-     Age:{
+     age:{
         type:Number,
         required:true,
      },
