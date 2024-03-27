@@ -11,6 +11,6 @@ class serviceuser{
 
       
     }
-   
 
+   
 module.exports=serviceuser

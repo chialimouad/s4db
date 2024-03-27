@@ -18,16 +18,11 @@ const userschema =new Schema({
        required:true,
        unique:true,
     },
-    idpulse:{
+    Specialite:{
         type:String,
         required:true,
-        unique:true,
      },
      willaya:{
-        type:String,
-        required:true,
-     },
-     password:{
         type:String,
         required:true,
      },
@@ -35,18 +30,16 @@ const userschema =new Schema({
         type:Number,
         required:true,
      },
-     Grp:{
-      type:Boolean,
-      required:true,
-   },
-         maladie:{
-      type:Boolean,
-      required:true,
-   },
+     password:{
+        type:Number,
+        required:true,
+     },
+     
+
 
 
 })
 
 
-const Patients=db.model('Patients',userschema)
-module.exports=Patients
+const Doctors=db.model('Doctors',userschema)
+module.exports=-Doctors
