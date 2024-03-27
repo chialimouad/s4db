@@ -60,8 +60,7 @@ exports.logindoc= async(req,res,next)=>{
       if(!ismatch){
         return res.status(400).json({msg:"incorect"})
       }
-      const token = Jwt.sign({id:doc1._id},"Socketiomouad")
-      res.json({token,...doc1._doc})
+    
     
       
     res.json({status:true,success:"user succsefully"})
@@ -79,8 +78,7 @@ exports.login= async(req,res,next)=>{
       if(!ismatch){
         return res.status(400).json({msg:"incorect"})
       }
-      const token = Jwt.sign({id:user._id},"Socketiomouad")
-      res.json({token,...user._doc})
+     
     
       
     res.json({status:true,success:"user succsefully"})
