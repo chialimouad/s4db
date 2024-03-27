@@ -36,19 +36,22 @@ exports.logindoc= async(req,res,next)=>{
     
     let tokendata ={id:doclogin._id,email:doclogin.email}
       var token =await docserv.generatetoken(tokendata,"mouadio","1h")
-      const tokver=req.cookies.Jwt
-      if(tokver){
-        Jwt.verify(tokver,"mouadio",(err,decodedtoken)=>{
-            if(err){
-                res.status(400).json({msg:"dont user"})
-            }else{
-                next()
-            }
-        })
-      }
+    
     res.json({status:true,success:"user succsefully",token:token})
      
 }catch(err){console.log(err)}}
+exports.verifytoken=async(req,res,next)=>{
+    const tokver=req.cookies.Jwt
+    if(tokver){
+      Jwt.verify(tokver,"mouadio",(err,decodedtoken)=>{
+          if(err){
+              res.status(400).json({msg:"dont user"})
+          }else{
+              next()
+          }
+      })
+    }
+}
 // exports.login= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
