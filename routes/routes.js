@@ -4,7 +4,7 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 route.post('/register',dbcontrol.register)
 route.post('/registerdoctor',dbcontrol.registerdoctor)
-// route.post('/logindoc',dbcontrol.logindoc)
+route.post('/logindoc',dbcontrol.logindoc)
 route.get('/fetch',async (req,res)=>{
     try{
     const fetch= await dbq.find({})
