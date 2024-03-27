@@ -41,5 +41,5 @@ const docschema =new Schema({
 })
 
 
-const Doctors=dbdoc.model('Doctors',docschema)
+const Doctors=dbdoc.model('doctorso',docschema)
 module.exports=Doctors
