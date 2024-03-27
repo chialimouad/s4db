@@ -31,11 +31,11 @@ const userschema =new Schema({
         type:String,
         required:true,
      },
-     Age:{
+     age:{
         type:Number,
         required:true,
      },
-     Grp:{
+     grp:{
       type:Boolean,
       required:true,
    },
