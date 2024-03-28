@@ -23,8 +23,8 @@ exports.loginuser= async(req,res,next)=>{
 
       }
       let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
-      var token =await docserv.generatetoken(tokendata,"mouadio","1h")
-    res.json({status:true,success:"user succsefully"})
+      var usertoken =await docserv.generatetoken(tokendata,"patients","10h")
+    res.json({status:true,success:"user succsefully",token:usertoken})
     
 }catch(err){console.log(err)}}
 exports.registerdoctor= async(req,res,next)=>{
