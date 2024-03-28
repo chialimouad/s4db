@@ -10,7 +10,8 @@ exports.register= async(req,res,next)=>{
     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
     const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
    
-    
+    let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
+    var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
@@ -22,8 +23,8 @@ exports.loginuser= async(req,res,next)=>{
         return res.status(400).json({msg:"Email Exist"})
 
       }
-      let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
-      var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+    //   let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
+    //   var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
     res.json({status:true,success:"user succsefully",token:usertoken})
     
 }catch(err){console.log(err)}}
