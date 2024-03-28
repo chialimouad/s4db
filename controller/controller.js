@@ -7,8 +7,8 @@ const dbqdoc=require('../models/doctormodel')
 const { json } = require('body-parser')
 exports.register= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
-    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+    const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
+    const usercontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
    
     let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
     var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
