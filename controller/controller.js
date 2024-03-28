@@ -17,7 +17,7 @@ exports.register= async(req,res,next)=>{
 exports.loginuser= async(req,res,next)=>{
     try{
     const {email}=req.body
-    const userlogin =await dbq.findOne({email})
+    const userlogin =await dbq.find({email})
     if(!userlogin){
         return res.status(400).json({msg:"Email Exist"})
 
