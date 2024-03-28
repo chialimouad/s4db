@@ -5,6 +5,7 @@ const dbqdoc=require('../models/doctormodel')
 route.post('/register',dbcontrol.register)
 route.post('/registerdoctor',dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
+route.post('/loginuser',dbcontrol.loginuser)
 route.get('/getuser',dbcontrol.getdatacontroller)
 route.get('/fetch',async (req,res)=>{
     try{

@@ -4,9 +4,10 @@ class serviceuser{
        try{
        const par=new dbq({email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
        return await par.save()
-
+          
        }catch(err){console.log(err)}
      }
+     
      static async getdata(userId){
       try{
       const par=await dbq.find({userId})
