@@ -14,19 +14,19 @@ exports.register= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
-exports.loginuser= async(req,res,next)=>{
-    try{
-    const {email}=req.body
-    const userlogin =await dbq.findOne({email})
-    if(!userlogin){
-        return res.status(400).json({msg:"Email Exist"})
+// exports.loginuser= async(req,res,next)=>{
+//     try{
+//     const {email}=req.body
+//     const userlogin =await dbq.findOne({email})
+//     if(!userlogin){
+//         return res.status(400).json({msg:"Email Exist"})
 
-      }
-      let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
-      var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true,success:"user succsefully",token:usertoken})
+//       }
+//       let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
+//       var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+//     res.json({status:true,success:"user succsefully",token:usertoken})
     
-}catch(err){console.log(err)}}
+// }catch(err){console.log(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
