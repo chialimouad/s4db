@@ -7,6 +7,13 @@ class serviceuser{
 
        }catch(err){console.log(err)}
      }
+     static async getdata(userId){
+      try{
+      const par=await dbq.find({userId})
+      return par
+
+      }catch(err){console.log(err)}
+    }
     }
 
    

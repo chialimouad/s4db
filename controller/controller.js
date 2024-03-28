@@ -4,6 +4,7 @@ const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
+const { json } = require('body-parser')
 exports.register= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
@@ -34,7 +35,7 @@ exports.logindoc= async(req,res,next)=>{
         return res.status(400).json({msg:"incorect"})
       }
     
-    let tokendata ={id:doclogin._id,email:doclogin.email}
+    let tokendata ={id:doclogin._id,email:doclogin.email,fullname:doclogin.fullname,password:doclogin.password,phonenumber:doclogin.phonenumber,Age:doclogin.Age,Specialite:doclogin.Specialite,willaya:doclogin.willaya}
       var token =await docserv.generatetoken(tokendata,"mouadio","1h")
     
     res.json({status:true,success:"user succsefully",token:token})
@@ -51,6 +52,12 @@ exports.verifytoken=async(req,res,next)=>{
           }
       })
     }
+}
+exports.getdatacontroller=async(req,res,next)=>{
+    const {userId}=req.body
+    let getdatafrom =await userserv.getdata({userId})
+  res,json({status:"true",success:getdatafrom})
+
 }
 // exports.login= async(req,res,next)=>{
 //     try{
