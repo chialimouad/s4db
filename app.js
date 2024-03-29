@@ -1,6 +1,8 @@
 const app=require('./index')
 const db =require('./config/db')
 const db1 =require('./models/models')
+const dbdoc =require('./models/doctormodel')
+
 const userfecth = require('./controller/controller')
 
 var port = process.env.PORT || 3000 
