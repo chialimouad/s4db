@@ -10,7 +10,7 @@ class serviceuser{
 
      static async getdata(userId){
       try{
-      const goti=await dbq.findOne({userId})
+      const goti=await dbq.find({userId})
       return goti
 
       }catch(err){console.log(err)}
