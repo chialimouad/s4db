@@ -7,14 +7,11 @@ class serviceuser{
           
        }catch(err){console.log(err)}
      }
-     static async generatetoken(tokendata,secretkey,jwt_expire){
-      return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
 
-    }
      static async getdata(userId){
       try{
-      const par=await dbq.find({userId})
-      return par
+      const goti=await dbq.findOne({userId})
+      return goti
 
       }catch(err){console.log(err)}
     }
