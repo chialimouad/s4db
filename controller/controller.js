@@ -69,7 +69,7 @@ exports.verifytoken=async(req,res,next)=>{
 exports.getdatacontroller=async(req,res,next)=>{
     const {userId}=req.body
     let getdatafrom =await userserv.getdata({userId})
-  res.json({status:"true",success:getdatafrom})
+  res.json({status:true,success:getdatafrom})
 
 }
 // exports.login= async(req,res,next)=>{
