@@ -72,6 +72,12 @@ exports.getdatacontroller=async(req,res,next)=>{
   res.json({status:true,success:getdatafrom})
 
 }
+exports.getdatacontrollerspecial=async(req,res,next)=>{
+    const {email}=req.body
+    let getdatafrom =await userserv.getdataspecial(email)
+  res.json({status:true,success:getdatafrom})
+
+}
 // exports.login= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
