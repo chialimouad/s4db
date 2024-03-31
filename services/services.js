@@ -15,7 +15,7 @@ class serviceuser{
 
       }catch(err){console.log(err)}
     }
-    static async getdataspecial(email){
+    static async deleting(email){
       try{
       const goti=await dbq.findOne({email})
       return goti

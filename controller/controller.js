@@ -30,6 +30,18 @@ exports.loginuser= async(req,res,next)=>{
       var token =await userserv.generatetoken(tokendata,"patients","10h")
       res.json({status:true,success:"user succsefully",token:token})
 }catch(err){console.log(err)}}
+exports.deleteuser= async(req,res,next)=>{
+    try{
+    const {email,password}=req.body
+    const userlogin =await dbq.findOne({email})
+    if(!userlogin){
+        return res.status(400).json({msg:"Email Exist"})
+
+      }
+     
+
+      res.json({status:true,success:"user succsefully"})
+}catch(err){console.log(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
