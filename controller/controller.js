@@ -34,11 +34,8 @@ exports.deleteuser= async(req,res,next)=>{
     try{
     const {id}=req.body
     let deleted =await userserv.deleting(id)
-   
-    
-
-      res.json({status:true,success:deleted})
-}catch(err){console.log(err)}}
+   res.json({status:true,success:deleted})
+}catch(err){next(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body

@@ -16,11 +16,11 @@ class serviceuser{
       }catch(err){console.log(err)}
     }
     static async deleting(id){
-      try{
+      
       const deleting=await dbq.findOneAndDelete({_id:id})
       return deleting
 
-      }catch(err){console.log(err)}
+     
     }
     static async generatetoken(tokendata,secretkey,jwt_expire){
       return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
