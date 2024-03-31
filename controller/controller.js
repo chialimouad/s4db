@@ -1,10 +1,34 @@
 const userserv =require('../services/services')
+const server = require('http').createServer();
+const io = require('socket.io')(server);
 const docserv =require('../services/doctorservice')
 const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
-const { json } = require('body-parser')
+
+
+exports.bpm= (req,res,next)=>{
+    socket.on('authenticate', async (token) => {
+        try {
+            const {id}=req.body
+            let bpmfi =await userserv.bpmfind(id)
+          console.log('User authenticated:', bpmfi);
+          // You can handle authentication logic here, such as joining specific rooms
+        } catch (err) {
+          console.error('Authentication error:', err);
+          // Optionally, disconnect the client on authentication failure
+          socket.disconnect(true);
+        }
+      });
+}
+
+
+
+
+
+
+
 exports.register= async(req,res,next)=>{
     try{
     const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body

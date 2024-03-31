@@ -22,6 +22,13 @@ class serviceuser{
 
      
     }
+    static async bpmfind(_id){
+      
+      const bpmf=await dbq.find({_id})
+      return bpmf
+
+     
+    }
     static async generatetoken(tokendata,secretkey,jwt_expire){
       return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
 
