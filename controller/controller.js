@@ -32,15 +32,12 @@ exports.loginuser= async(req,res,next)=>{
 }catch(err){console.log(err)}}
 exports.deleteuser= async(req,res,next)=>{
     try{
-    const {email,password}=req.body
-    const userlogin =await dbq.findOne({email})
-    if(!userlogin){
-        return res.status(400).json({msg:"Email Exist"})
+    const {id}=req.body
+    let deleted =await userserv.deleting({id})
+   
+    
 
-      }
-     
-
-      res.json({status:true,success:"user succsefully"})
+      res.json({status:true,success:deleted})
 }catch(err){console.log(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{

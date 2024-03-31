@@ -15,10 +15,10 @@ class serviceuser{
 
       }catch(err){console.log(err)}
     }
-    static async deleting(email){
+    static async deleting(id){
       try{
-      const goti=await dbq.findOne({email})
-      return goti
+      const deleting=await dbq.findOneAndDelete({_id:id})
+      return deleting
 
       }catch(err){console.log(err)}
     }
