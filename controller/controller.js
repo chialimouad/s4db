@@ -10,7 +10,7 @@ exports.register= async(req,res,next)=>{
     const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
     const usercontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
    
-    let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse}
+    let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
     res.json({status:true,success:usertoken})
     
