@@ -17,11 +17,14 @@ exports.register= async(req,res,next)=>{
 }catch(err){console.log(err)}}
 exports.loginuser= async(req,res,next)=>{
     try{
-    const {email}=req.body
+    const {email,password}=req.body
     const userlogin =await dbq.findOne({email})
     if(!userlogin){
         return res.status(400).json({msg:"Email Exist"})
 
+      }
+      if(!(password==userlogin.password)){
+        return res.status(400).json({msg:"incorect"})
       }
       let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,userId:userlogin.userId}
       var token =await userserv.generatetoken(tokendata,"patients","10h")
