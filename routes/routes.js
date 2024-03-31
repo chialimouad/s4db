@@ -7,7 +7,7 @@ route.post('/registerdoctor',dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
-route.delete('/delete',dbcontrol.deleteuser)
+route.post('/delete',dbcontrol.deleteuser)
 route.get('/fetch',async (req,res)=>{
     try{
     const fetch= await dbq.find({})
