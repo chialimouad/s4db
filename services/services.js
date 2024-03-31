@@ -15,9 +15,9 @@ class serviceuser{
 
       }catch(err){console.log(err)}
     }
-    static async deleting(id){
+    static async deleting(_id){
       
-      const deleting=await dbq.findOneAndDelete({_id:id})
+      const deleting=await dbq.findOneAndDelete({_id})
       return deleting
 
      
