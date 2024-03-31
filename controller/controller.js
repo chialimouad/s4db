@@ -33,7 +33,7 @@ exports.loginuser= async(req,res,next)=>{
 exports.deleteuser= async(req,res,next)=>{
     try{
     const {id}=req.body
-    let deleted =await userserv.deleting({id})
+    let deleted =await userserv.deleting(id)
    
     
 
