@@ -22,6 +22,10 @@ class serviceuser{
 
       }catch(err){console.log(err)}
     }
+    static async generatetoken(tokendata,secretkey,jwt_expire){
+      return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
+
+    }
     }
 
    
