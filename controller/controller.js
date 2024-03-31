@@ -5,6 +5,8 @@ const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 const { json } = require('body-parser')
+const adminToken = docserv.generatetoken;
+
 exports.register= async(req,res,next)=>{
     try{
     const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
@@ -49,25 +51,22 @@ exports.logindoc= async(req,res,next)=>{
       if(!(password==doclogin.password)){
         return res.status(400).json({msg:"incorect"})
       }
-    
+       
     let tokendata ={id:doclogin._id,email:doclogin.email,fullname:doclogin.fullname,password:doclogin.password,phonenumber:doclogin.phonenumber,Age:doclogin.Age,Specialite:doclogin.Specialite,willaya:doclogin.willaya}
       var token =await docserv.generatetoken(tokendata,"mouadio","1h")
     
     res.json({status:true,success:"user succsefully",token:token})
      
 }catch(err){console.log(err)}}
-exports.verifytoken=async(req,res,next)=>{
-    const tokver=req.cookies.Jwt
-    if(tokver){
-      Jwt.verify(tokver,"mouadio",(err,decodedtoken)=>{
-          if(err){
-              res.status(400).json({msg:"dont user"})
-          }else{
-              next()
-          }
-      })
+exports.verifyAdminToken=async(req, res, next)=> {
+    const token = req.headers.authorization;
+  
+    if (!token || token !== `Bearer ${adminToken}`) {
+      return res.status(401).json({ message: 'Unauthorized' });
     }
-}
+  
+    next();
+  }
 exports.getdatacontroller=async(req,res,next)=>{
     const {userId}=req.body
     let getdatafrom =await userserv.getdata(userId)
