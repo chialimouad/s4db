@@ -1,32 +1,13 @@
 const userserv =require('../services/services')
-const server = require('http').createServer();
-const io = require('socket.io')(server);
 const docserv =require('../services/doctorservice')
 const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
-
-
-exports.bpm= (req,res,next)=>{
-    socket.on('authenticate', async (token) => {
-        try {
-            const {id}=req.body
-            let bpmfi =await userserv.bpmfind(id)
-          console.log('User authenticated:', bpmfi);
-          // You can handle authentication logic here, such as joining specific rooms
-        } catch (err) {
-          console.error('Authentication error:', err);
-          // Optionally, disconnect the client on authentication failure
-          socket.disconnect(true);
-        }
-      });
-}
-
-
-
-
-
+const http = require('http');
+const server = http.createServer(app);
+const socketIo = require('socket.io');
+const io = socketIo(server);
 
 
 exports.register= async(req,res,next)=>{
@@ -36,9 +17,39 @@ exports.register= async(req,res,next)=>{
    
     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true,success:"usertoken"})
+    res.json({status:true,token: 'dummy_token_for_' + usercontrol.fullname })
     
 }catch(err){console.log(err)}}
+
+
+exports.ffbpm=
+io.use((socket, next) => {
+    const token = socket.handshake.auth.token;
+    if (!token) {
+      return next(new Error('Unauthorized'));
+    }
+    // Dummy token validation
+    if (token.startsWith('dummy_token_for_')) {
+      next();
+    } else {
+      return next(new Error('Unauthorized'));
+    }
+  });
+  io.on('connection', (socket) => {
+    console.log(`User connected: ${socket.handshake.auth.token}`);
+    // Handle socket events...
+    socket.on('disconnect', () => {
+      console.log(`User disconnected: ${socket.handshake.auth.token}`);
+    });
+  });
+
+
+
+
+
+
+
+
 exports.loginuser= async(req,res,next)=>{
     try{
     const {email,password}=req.body

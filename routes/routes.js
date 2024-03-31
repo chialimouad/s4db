@@ -2,12 +2,11 @@ const route=require('express').Router()
 const dbcontrol=require('../controller/controller')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
-route.post('/register',dbcontrol.register)
+route.post('/register',dbcontrol.ffbpm,dbcontrol.register)
 route.post('/registerdoctor',dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
-route.post('/bpmf',dbcontrol.bpm)
 route.post('/delete',dbcontrol.deleteuser)
 route.get('/fetch',async (req,res)=>{
     try{
