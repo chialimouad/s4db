@@ -7,13 +7,13 @@ class serviceuser{
        return await par.save()
        }catch(err){console.log(err)}
      }
-     static async getbpm(idpulse,Bpm){
-      try{
-      const par=new dbq({idpulse,Bpm})
-      return await par.save()
+    //  static async getbpm(idpulse,Bpm){
+    //   try{
+    //   const par=new dbq({idpulse,Bpm})
+    //   return await par.save()
          
-      }catch(err){console.log(err)}
-    }
+    //   }catch(err){console.log(err)}
+    // }
 
      static async getdata(userId){
       try{
