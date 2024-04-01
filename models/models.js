@@ -50,7 +50,7 @@ const userschema =new Schema({
    },
    Bpm :{
       type:Array,
-      required:true,
+      required:false,
      
   },
 
