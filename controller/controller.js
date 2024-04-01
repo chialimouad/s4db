@@ -21,29 +21,16 @@ exports.register= async(req,res,next)=>{
     
 }catch(err){console.log(err)}}
 
-
-exports.ffbpm=
-io.use((socket, next) => {
-    const token = socket.handshake.auth.token;
-    if (!token) {
-      return next(new Error('Unauthorized'));
-    }
-    // Dummy token validation
-    if (token.startsWith('dummy_token_for_')) {
-      next();
-    } else {
-      return next(new Error('Unauthorized'));
-    }
-  });
-  io.on('connection', (socket) => {
-    console.log(`User connected: ${socket.handshake.auth.token}`);
-    // Handle socket events...
-    socket.on('disconnect', () => {
-      console.log(`User disconnected: ${socket.handshake.auth.token}`);
-    });
-  });
-
-
+exports.dbload= async(req,res,next)=>{
+    try{
+    const {id,Bpm}=req.body
+    const usercontrol =await userserv.getbpm(id,Bpm)
+   
+    // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
+    // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+    res.json({status:true, })
+    
+}catch(err){console.log(err)}}
 
 
 

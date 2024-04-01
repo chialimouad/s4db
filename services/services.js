@@ -1,4 +1,6 @@
 const dbq=require('../models/models')
+const dbqmeasure=require('../models/measure')
+
 class serviceuser{
      static async registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
        try{
@@ -7,6 +9,13 @@ class serviceuser{
           
        }catch(err){console.log(err)}
      }
+     static async getbpm(id,Bpm){
+      try{
+      const par=new dbqmeasure({id,Bpm})
+      return await par.save()
+         
+      }catch(err){console.log(err)}
+    }
 
      static async getdata(userId){
       try{
