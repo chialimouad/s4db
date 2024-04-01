@@ -5,7 +5,6 @@ class serviceuser{
        try{
        const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie,Bpm})
        return await par.save()
-          
        }catch(err){console.log(err)}
      }
      static async getbpm(idpulse,Bpm){

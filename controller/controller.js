@@ -14,7 +14,7 @@ exports.register= async(req,res,next)=>{
    
     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true,success:"successfully"})
+    res.json({status:true,success:usercontrol})
     
 }catch(err){console.log(err)}}
 
