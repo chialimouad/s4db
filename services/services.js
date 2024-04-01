@@ -1,9 +1,9 @@
 const dbq=require('../models/models')
 
 class serviceuser{
-     static async registeruser(userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie){
+     static async registeruser(userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie,Bpm){
        try{
-       const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie})
+       const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie,Bpm})
        return await par.save()
           
        }catch(err){console.log(err)}
