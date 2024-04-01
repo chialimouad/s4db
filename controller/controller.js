@@ -20,8 +20,8 @@ exports.register= async(req,res,next)=>{
 
 exports.dbload= async(req,res,next)=>{
     try{
-    const {id,Bpm}=req.body
-    const bpmcontroller =await userserv.getbpm(id,Bpm)
+    const {idpulse,Bpm}=req.body
+    const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
    
     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
@@ -54,6 +54,12 @@ exports.deleteuser= async(req,res,next)=>{
     const {id}=req.body
     let deleted =await userserv.deleting(id)
    res.json({status:true,success:deleted})
+}catch(err){next(err)}}
+exports.updateuser= async(req,res,next)=>{
+    try{
+    const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
+    let updateuser =await userserv.updating(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+   res.json({status:true,success:updateuser})
 }catch(err){next(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{

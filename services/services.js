@@ -1,17 +1,16 @@
 const dbq=require('../models/models')
-const dbqmeasure=require('../models/measure')
 
 class serviceuser{
-     static async registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
+     static async registeruser(userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie){
        try{
-       const par=new dbq({userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
+       const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie})
        return await par.save()
           
        }catch(err){console.log(err)}
      }
-     static async getbpm(id,Bpm){
+     static async getbpm(idpulse,Bpm){
       try{
-      const par=new dbqmeasure({id,Bpm})
+      const par=new dbq({idpulse,Bpm})
       return await par.save()
          
       }catch(err){console.log(err)}
@@ -28,6 +27,13 @@ class serviceuser{
       
       const deleting=await dbq.findOneAndDelete({_id})
       return deleting
+
+     
+    }
+    static async updating(_id){
+      
+      const updating=await dbq.findByIdAndUpdate({_id})
+      return updating
 
      
     }
