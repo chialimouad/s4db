@@ -9,8 +9,8 @@ class serviceuser{
      }
      static async getbpm(idpulse,Bpm){
       try{
-      const par=new dbq({idpulse,Bpm})
-      return await par.save()
+      const bpmg=new dbq({idpulse,Bpm})
+      return await bpmg.save()
          
       }catch(err){console.log(err)}
     }

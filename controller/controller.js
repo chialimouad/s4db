@@ -8,7 +8,7 @@ exports.registeruser= async(req,res,next)=>{
     try{
     const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
     const doccontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
-
+    
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
