@@ -4,10 +4,7 @@ const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
-const http = require('http');
-const server = http.createServer(app);
-const socketIo = require('socket.io');
-const io = socketIo(server);
+
 
 
 exports.register= async(req,res,next)=>{
@@ -17,18 +14,18 @@ exports.register= async(req,res,next)=>{
    
     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true,token: 'dummy_token_for_' + usercontrol.fullname })
+    res.json({status:true,})
     
 }catch(err){console.log(err)}}
 
 exports.dbload= async(req,res,next)=>{
     try{
     const {id,Bpm}=req.body
-    const usercontrol =await userserv.getbpm(id,Bpm)
+    const bpmcontroller =await userserv.getbpm(id,Bpm)
    
     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true, })
+    res.json({status:true, success:"user successufuly"})
     
 }catch(err){console.log(err)}}
 
