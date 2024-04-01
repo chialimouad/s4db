@@ -53,12 +53,12 @@ exports.deleteuser= async(req,res,next)=>{
     let deleted =await userserv.deleting(id)
    res.json({status:true,success:deleted})
 }catch(err){next(err)}}
-exports.updateuser= async(req,res,next)=>{
-    try{
-    const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
-    let updateuser =await userserv.updating(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
-   res.json({status:true,success:updateuser})
-}catch(err){next(err)}}
+// exports.updateuser= async(req,res,next)=>{
+//     try{
+//     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
+//     let updateuser =await userserv.updating(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+//    res.json({status:true,success:updateuser})
+// }catch(err){next(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body

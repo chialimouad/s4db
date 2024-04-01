@@ -29,13 +29,13 @@ class serviceuser{
 
      
     }
-    static async updating(_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
+    // static async updating(_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
       
-      const updating=await dbq.findOneAndUpdate({_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
-      return await updating.save()
+    //   const updating=await dbq.findOneAndUpdate({_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
+    //   return await updating.save()
 
      
-    }
+    // }
   
     static async generatetoken(tokendata,secretkey,jwt_expire){
       return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
