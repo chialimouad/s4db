@@ -48,11 +48,7 @@ const userschema =new Schema({
       type:String,
       required:false,
    },
-   Bpm :{
-      type:Array,
-      required:false,
-     
-  },
+
 
 })
 
