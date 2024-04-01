@@ -16,16 +16,16 @@ exports.registeruser= async(req,res,next)=>{
 
 
 
-exports.dbload= async(req,res,next)=>{
-    try{
-    const {idpulse,Bpm}=req.body
-    const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
+// exports.dbload= async(req,res,next)=>{
+//     try{
+//     const {idpulse,Bpm}=req.body
+//     const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
    
-    // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
-    // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true, success:"user successufuly"})
+//     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
+//     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+//     res.json({status:true, success:"user successufuly"})
     
-}catch(err){console.log(err)}}
+// }catch(err){console.log(err)}}
 
 
 
