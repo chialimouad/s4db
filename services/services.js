@@ -32,7 +32,7 @@ class serviceuser{
     }
     static async updating(_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie){
       
-      const updating=await dbq.findByIdAndUpdate({_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
+      const updating=await dbq.findOneAndUpdate({_id,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie})
       return await updating.save()
 
      
