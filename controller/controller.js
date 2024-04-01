@@ -4,19 +4,17 @@ const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
-
-
-
-exports.register= async(req,res,next)=>{
+exports.registeruser= async(req,res,next)=>{
     try{
     const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
-    const usercontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
-   console.log(usercontrol);
-    // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
-    // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true,success:usercontrol})
+    const doccontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+
+    res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
+
+
+
 
 exports.dbload= async(req,res,next)=>{
     try{
