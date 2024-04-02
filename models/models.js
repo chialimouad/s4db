@@ -11,46 +11,46 @@ userId:{
 },
    email :{
        type:String,
-       required:true,
+       required:false,
        unique:true,
      
    },
    fullname :{
        type:String,
-       required:true,
+       required:false,
       
    },
    phonenumber:{
       type:Number,
-      required:true,
+      required:false,
       unique:true,
    },
    maladie:{
        type:String,
-       required:true,
+       required:false,
     },
     willaya:{
        type:String,
-       required:true,
+       required:false,
     },
     Age:{
        type:Number,
-       required:true,
+       required:false,
     },
     password:{
        type:String,
-       required:true,
+       required:false,
     },
     Grp:{
       type:String,
-      required:true,
+      required:false,
    },
    pulseid:{
       type:String,
-      required:true,
+      required:false,
    },
    Bpm:{
-      type:Array,
+      type:Number,
       required:false,
    },
 
