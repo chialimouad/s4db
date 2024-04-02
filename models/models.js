@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-const dbdoc=require('../config/dbdoctor')
+const db=require('../config/db')
 const { Schema }=mongoose
 const Patient =new Schema({
     email :{
@@ -41,5 +41,5 @@ const Patient =new Schema({
 })
 
 
-const Patientaddes=dbdoc.model('Patient',Patient)
+const Patientaddes=db.model('Patient',Patient)
 module.exports=Patientaddes
