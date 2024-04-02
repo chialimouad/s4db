@@ -8,7 +8,6 @@ const userschema =new Schema({
 userId:{
    type:Schema.Types.ObjectId,
    ref:usershema.modelName,
-   required:false
 },
 email :{
    type:String,
@@ -42,10 +41,7 @@ password:{
    type:String,
    required:true,
 },
-Grp:{
-   type:String,
-   required:true,
-},
+
 
 
 })
