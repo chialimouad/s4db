@@ -1,45 +1,57 @@
 const mongoose=require('mongoose')
 const db=require('../config/db')
+const usershema = require('../models/doctormodel')
 const { Schema }=mongoose
-const Patient =new Schema({
-    email :{
-        type:String,
-        required:true,
-        unique:true,
-      
-    },
-    fullname :{
-        type:String,
-        required:true,
-       
-    },
-    phonenumber:{
-       type:Number,
-       required:true,
-       unique:true,
-    },
-    Specialite:{
-        type:String,
-        required:true,
-     },
-     willaya:{
-        type:String,
-        required:true,
-     },
-     Age:{
-        type:Number,
-        required:true,
-     },
-     password:{
-        type:String,
-        required:true,
-     },
-     
-
+const userschema =new Schema({
+   
+userId:{
+   type:Schema.Types.ObjectId,
+   ref:usershema.modelName,
+},
+email :{
+   type:String,
+   required:true,
+   unique:true,
+ 
+},
+fullname :{
+   type:String,
+   required:true,
+  
+},
+phonenumber:{
+  type:Number,
+  required:true,
+  unique:true,
+},
+maladie:{
+   type:String,
+   required:false,
+},
+willaya:{
+   type:String,
+   required:false,
+},
+Age:{
+   type:Number,
+   required:false,
+},
+password:{
+   type:String,
+   required:false,
+},
+Grp:{
+   type:String,
+   required:false,
+},
+idpulse:{
+   type:String,
+   required:false,
+},
 
 
 })
 
 
-const Patientaddes=db.model('Patient',Patient)
-module.exports=Patientaddes
+const Patients=db.model('Patients',userschema)
+module.exports=Patients
