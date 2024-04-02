@@ -17,16 +17,16 @@ exports.registeruser= async(req,res,next)=>{
 
 
 
-exports.dbload= async(req,res,next)=>{
-    try{
-    const {idpulse,Bpm}=req.body
-    const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
+// exports.dbload= async(req,res,next)=>{
+//     try{
+//     const {idpulse,Bpm}=req.body
+//     const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
    
-    // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
-    // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-    res.json({status:true, success:"user successufuly"})
+//     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
+//     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+//     res.json({status:true, success:"user successufuly"})
     
-}catch(err){console.log(err)}}
+// }catch(err){console.log(err)}}
 
 
 
@@ -48,18 +48,18 @@ exports.loginuser= async(req,res,next)=>{
       var token =await userserv.generatetoken(tokendata,"patients","10h")
       res.json({status:true,success:"user succsefully",token:token})
 }catch(err){console.log(err)}}
-exports.deleteuser= async(req,res,next)=>{
-    try{
-    const {id}=req.body
-    let deleted =await userserv.deleting(id)
-   res.json({status:true,success:deleted})
-}catch(err){next(err)}}
-exports.updateuser= async(req,res,next)=>{
-    try{
-    const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
-    let updateuser =await userserv.updating(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
-   res.json({status:true,success:updateuser})
-}catch(err){next(err)}}
+// exports.deleteuser= async(req,res,next)=>{
+//     try{
+//     const {id}=req.body
+//     let deleted =await userserv.deleting(id)
+//    res.json({status:true,success:deleted})
+// }catch(err){next(err)}}
+// exports.updateuser= async(req,res,next)=>{
+//     try{
+//     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
+//     let updateuser =await userserv.updating(email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+//    res.json({status:true,success:updateuser})
+// }catch(err){next(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
@@ -86,30 +86,30 @@ exports.logindoc= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully",token:token})
      
 }catch(err){console.log(err)}}
-exports.verifytoken=async(req,res,next)=>{
-    const tokver=req.cookies.Jwt
-    if(tokver){
-      Jwt.verify(tokver,"mouadio",(err,decodedtoken)=>{
-          if(err){
-              res.status(400).json({msg:"dont user"})
-          }else{
-              next()
-          }
-      })
-    }
-}
-exports.getdatacontroller=async(req,res,next)=>{
-    const {userId}=req.body
-    let getdatafrom =await userserv.getdata(userId)
-  res.json({status:true,success:getdatafrom})
+// exports.verifytoken=async(req,res,next)=>{
+//     const tokver=req.cookies.Jwt
+//     if(tokver){
+//       Jwt.verify(tokver,"mouadio",(err,decodedtoken)=>{
+//           if(err){
+//               res.status(400).json({msg:"dont user"})
+//           }else{
+//               next()
+//           }
+//       })
+//     }
+// }
+// exports.getdatacontroller=async(req,res,next)=>{
+//     const {userId}=req.body
+//     let getdatafrom =await userserv.getdata(userId)
+//   res.json({status:true,success:getdatafrom})
 
-}
-exports.getdatacontrollerspecial=async(req,res,next)=>{
-    const {email}=req.body
-    let getdatafrom =await userserv.getdataspecial(email)
-  res.json({status:true,success:getdatafrom})
+// }
+// exports.getdatacontrollerspecial=async(req,res,next)=>{
+//     const {email}=req.body
+//     let getdatafrom =await userserv.getdataspecial(email)
+//   res.json({status:true,success:getdatafrom})
 
-}
+// }
 // exports.login= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body

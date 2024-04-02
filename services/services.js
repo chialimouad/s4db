@@ -16,13 +16,13 @@ const dbqa=require('../models/models')
     //     }catch(err){console.log(err)}
     //   }
   
-       static async getdata(userId){
-        try{
-        const goti=await dbqa.find({userId})
-        return goti
+      //  static async getdata(userId){
+      //   try{
+      //   const goti=await dbqa.find({userId})
+      //   return goti
   
-        }catch(err){console.log(err)}
-      }
+      //   }catch(err){console.log(err)}
+      // }
     //   static async deleting(_id){
         
     //     const deleting=await dbqa.findOneAndDelete({_id})
