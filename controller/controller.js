@@ -6,8 +6,8 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 exports.registeruser= async(req,res,next)=>{
     try{
-    const {userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
-    const doccontrol =await userserv.registeruser(userId,email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie)
+    const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
+    const doccontrol =await userserv.registeruser(email,fullname,phonenumber,Specialite,willaya,Age,password)
 
     res.json({status:true,success:"user succsefully"})
     
