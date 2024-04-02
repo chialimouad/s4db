@@ -1,12 +1,14 @@
 const dbq=require('../models/models')
 
 class serviceuser{
+   
      static async registeruser(userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie){
-       try{
-       const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie})
-       return await par.save()
-       }catch(err){console.log(err)}
-     }
+      try{
+        const par=new dbq({userId,email,fullname,phonenumber,willaya,password,Age,Grp,maladie})
+        return await par.save()
+
+      }catch(err){console.log(err)}
+    }
      static async getbpm(idpulse,Bpm){
       try{
       const bpmg=new dbq({idpulse,Bpm})
