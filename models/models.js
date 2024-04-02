@@ -7,7 +7,8 @@ const userschema =new Schema({
    
 userId:{
    type:Schema.Types.ObjectId,
-   ref:usershema.modelName
+   ref:usershema.modelName,
+   required:false
 },
    email :{
        type:String,
