@@ -9,7 +9,6 @@ const userschema =new Schema({
    },
     email :{
         type:String,
-        required:true,
         unique:true,
       
     },
@@ -21,7 +20,6 @@ const userschema =new Schema({
     phonenumber:{
        type:Number,
        required:false,
-       unique:true,
     },
     idpulse:{
         type:String,
