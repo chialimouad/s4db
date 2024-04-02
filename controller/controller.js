@@ -6,8 +6,8 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 exports.registeruser= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
-    const doccontrol =await userserv.registeruser(email,fullname,phonenumber,Specialite,willaya,Age,password)
+    const {email,fullname,phonenumber,Specialite,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm}=req.body
+    const doccontrol =await userserv.registeruser(email,fullname,phonenumber,Specialite,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm)
 
     res.json({status:true,success:"user succsefully"})
     
@@ -48,12 +48,12 @@ exports.loginuser= async(req,res,next)=>{
       var token =await userserv.generatetoken(tokendata,"patients","10h")
       res.json({status:true,success:"user succsefully",token:token})
 }catch(err){console.log(err)}}
-// exports.deleteuser= async(req,res,next)=>{
-//     try{
-//     const {id}=req.body
-//     let deleted =await userserv.deleting(id)
-//    res.json({status:true,success:deleted})
-// }catch(err){next(err)}}
+exports.deleteuser= async(req,res,next)=>{
+    try{
+    const {id}=req.body
+    let deleted =await userserv.deleting(id)
+   res.json({status:true,success:deleted})
+}catch(err){next(err)}}
 // exports.updateuser= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body
@@ -98,12 +98,12 @@ exports.logindoc= async(req,res,next)=>{
 //       })
 //     }
 // }
-// exports.getdatacontroller=async(req,res,next)=>{
-//     const {userId}=req.body
-//     let getdatafrom =await userserv.getdata(userId)
-//   res.json({status:true,success:getdatafrom})
+exports.getdatacontroller=async(req,res,next)=>{
+    const {userId}=req.body
+    let getdatafrom =await userserv.getdata(userId)
+  res.json({status:true,success:getdatafrom})
 
-// }
+}
 // exports.getdatacontrollerspecial=async(req,res,next)=>{
 //     const {email}=req.body
 //     let getdatafrom =await userserv.getdataspecial(email)
