@@ -8,7 +8,7 @@ route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
 route.post('/delete',dbcontrol.deleteuser)
-//route.post('/data', dbcontrol.dbload)
+route.post('/data', dbcontrol.dbload)
 //route.post('/update', dbcontrol.updateuser)
 route.get('/fetch',async (req,res)=>{
     try{

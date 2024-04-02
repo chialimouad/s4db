@@ -6,8 +6,8 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 exports.registeruser= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,Specialite,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm}=req.body
-    const doccontrol =await userserv.registeruser(email,fullname,phonenumber,Specialite,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm)
+    const {email,fullname,phonenumber,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm}=req.body
+    const doccontrol =await userserv.registeruser(email,fullname,phonenumber,willaya,Age,password,userId,maladie,Grp,pulseid,Bpm)
 
     res.json({status:true,success:"user succsefully"})
     
@@ -17,16 +17,16 @@ exports.registeruser= async(req,res,next)=>{
 
 
 
-// exports.dbload= async(req,res,next)=>{
-//     try{
-//     const {idpulse,Bpm}=req.body
-//     const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
+exports.dbload= async(req,res,next)=>{
+    try{
+    const {idpulse,Bpm}=req.body
+    const bpmcontroller =await userserv.getbpm(idpulse,Bpm)
    
-//     // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
-//     // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
-//     res.json({status:true, success:"user successufuly"})
+    // let tokendata ={id:usercontrol._id,email:usercontrol.email,fullname:usercontrol.fullname,password:usercontrol.password,phonenumber:usercontrol.phonenumber,Age:usercontrol.Age,Grp:usercontrol.Grp,willaya:usercontrol.willaya,maladie:usercontrol.maladie,idpulse:usercontrol.idpulse}
+    // var usertoken =await userserv.generatetoken(tokendata,"patients","10h")
+    res.json({status:true, success:"user successufuly"})
     
-// }catch(err){console.log(err)}}
+}catch(err){console.log(err)}}
 
 
 
