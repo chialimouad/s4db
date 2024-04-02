@@ -1,9 +1,7 @@
-
-const usershema = require('../models/doctormodel')
 const mongoose=require('mongoose')
-const db=require('../config/db')
+const dbdoc=require('../config/dbdoctor')
 const { Schema }=mongoose
-const userschema =new Schema({
+const Patient =new Schema({
     email :{
         type:String,
         required:true,
@@ -20,10 +18,10 @@ const userschema =new Schema({
        required:true,
        unique:true,
     },
-   //  maladie:{
-   //      type:String,
-   //      required:true,
-   //   },
+    Specialite:{
+        type:String,
+        required:true,
+     },
      willaya:{
         type:String,
         required:true,
@@ -43,6 +41,5 @@ const userschema =new Schema({
 })
 
 
-const Patients=db.model('Patients',userschema)
-module.exports=Patients
-
+const Patientaddes=dbdoc.model('Patient',Patient)
+module.exports=Patientaddes
