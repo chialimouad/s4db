@@ -5,10 +5,10 @@ const { Schema }=mongoose
 
 const userschema =new Schema({
    
-userId:{
-   type:Schema.Types.ObjectId,
-   ref:usershema.modelName,
-},
+// userId:{
+//    type:Schema.Types.ObjectId,
+//    ref:usershema.modelName,
+// },
 email :{
    type:String,
    required:true,

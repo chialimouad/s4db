@@ -1,9 +1,9 @@
 const dbqa=require('../models/models')
     const jwt =require('jsonwebtoken')
     class serviceuser{
-      static async registeruser(email,fullname,phonenumber,willaya,Age,password,userId,){
+      static async registeruser(email,fullname,phonenumber,willaya,Age,password){
         try{
-          const par=new dbqa({email,fullname,phonenumber,willaya,Age,password,userId,})
+          const par=new dbqa({email,fullname,phonenumber,willaya,Age,password})
           return await par.save()
   
         }catch(err){console.log(err)}
