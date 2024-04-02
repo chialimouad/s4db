@@ -53,5 +53,5 @@ idpulse:{
 })
 
 
-const Patients=db.model('Patients',userschema)
+const Patients=db.model('Patient',userschema)
 module.exports=Patients
