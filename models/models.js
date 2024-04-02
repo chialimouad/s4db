@@ -10,51 +10,42 @@ userId:{
    ref:usershema.modelName,
    required:false
 },
-   email :{
-       type:String,
-       required:false,
-       unique:true,
-     
-   },
-   fullname :{
-       type:String,
-       required:false,
-      
-   },
-   phonenumber:{
-      type:Number,
-      required:false,
-      unique:true,
-   },
-   maladie:{
-       type:String,
-       required:false,
-    },
-    willaya:{
-       type:String,
-       required:false,
-    },
-    Age:{
-       type:Number,
-       required:false,
-    },
-    password:{
-       type:String,
-       required:false,
-    },
-    Grp:{
-      type:String,
-      required:false,
-   },
-   pulseid:{
-      type:String,
-      required:false,
-   },
-   Bpm:{
-      type:Number,
-      required:false,
-   },
-
+email :{
+   type:String,
+   required:true,
+   unique:true,
+ 
+},
+fullname :{
+   type:String,
+   required:true,
+  
+},
+phonenumber:{
+  type:Number,
+  required:true,
+  unique:true,
+},
+maladie:{
+   type:String,
+   required:true,
+},
+willaya:{
+   type:String,
+   required:true,
+},
+Age:{
+   type:Number,
+   required:true,
+},
+password:{
+   type:String,
+   required:true,
+},
+Grp:{
+   type:String,
+   required:true,
+},
 
 
 })
