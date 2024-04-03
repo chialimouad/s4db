@@ -6,6 +6,7 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 
 
+
 exports.registeruser= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse}=req.body
@@ -20,18 +21,24 @@ exports.registeruser= async(req,res,next)=>{
 
 
 exports.dbload= async(req,res,next)=>{
-    const heartbeat = new dbq({
-        Bpm: Bpm,
-        idpulse: idpulse
-      });
-      heartbeat.save()
-      .then(() => {
-        console.log('Heartbeat data saved to MongoDB');
-        res.sendStatus(200);
-      })
-      .catch((err) => {
-        console.error('Error saving heartbeat data:', err);
-        res.sendStatus(500);
+    io.on('connection', (socket) => {
+        console.log('Client connected');
+      
+        // Sensor data handler
+        socket.on('sensorData','pulseid', async (data,pulseid) => {
+          console.log('Received sensor data:', data,'id is :',pulseid);
+      
+          try {
+             const loaddata=userserv.getbpm(data,pulseid)
+             res.json({status:true,success:"user succsefully"})
+
+          }catch(err){console.log(err)}
+        });
+      
+        // Handle disconnection
+        socket.on('disconnect', () => {
+          console.log('Client disconnected');
+        });
       });
   }
 

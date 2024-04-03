@@ -8,9 +8,9 @@ const dbqa=require('../models/models')
   
         }catch(err){console.log(err)}
       }
-      static async getbpm(pulseid,Bpm){
+      static async getbpm(Bpm,pulseid){
         try{
-        const bpmg=new dbqa({pulseid,Bpm})
+        const bpmg=new dbqa({Bpm,pulseid})
         return await bpmg.save()
            
         }catch(err){console.log(err)}
