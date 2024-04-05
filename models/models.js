@@ -48,6 +48,10 @@ idpulse:{
    type:String,
    required:false,
 },
+Gender:{
+   type:String,
+   required:false,
+},
 
 
 })
