@@ -10,7 +10,7 @@ userId:{
 },
 advice:{
    type:String,
-   required:false,
+   required:true,
 },
 
 createdat: {
