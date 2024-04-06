@@ -19,7 +19,7 @@ exports.registeruser= async(req,res,next)=>{
 exports.registeradvice= async(req,res,next)=>{
   try{
   const {userId,advice,createdat}=req.body
-  const usercontrol =await userserv.registeradvice(userId,advice,createdat)
+  const usercontrol =await userserv.adviceregister(userId,advice,createdat)
 
   res.json({status:true,success:"user succsefully"})
   
