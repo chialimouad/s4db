@@ -1,5 +1,5 @@
 const cron = require('node-cron');
-const db = require('../models/models');
+const db = require('../models/advice');
 
 async function deleteAdvice() {
     try {
