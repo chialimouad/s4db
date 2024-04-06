@@ -16,6 +16,14 @@ exports.registeruser= async(req,res,next)=>{
 }catch(err){console.log(err)}}
 
 
+exports.registeradvice= async(req,res,next)=>{
+  try{
+  const {userId,advice,createdat}=req.body
+  const usercontrol =await userserv.registeradvice(userId,advice,createdat)
+
+  res.json({status:true,success:"user succsefully"})
+  
+}catch(err){console.log(err)}}
 
 
 

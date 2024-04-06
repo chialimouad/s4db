@@ -8,7 +8,7 @@ userId:{
    type:Schema.Types.ObjectId,
    ref:usershema.modelName,
 },
-advide:{
+advice:{
    type:String,
    required:false,
 },

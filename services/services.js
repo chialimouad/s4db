@@ -1,9 +1,17 @@
 const dbqa=require('../models/models')
+const db=require('../models/advice')
     const jwt =require('jsonwebtoken')
     class serviceuser{
       static async registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata){
         try{
           const par=new dbqa({email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata})
+          return await par.save()
+  
+        }catch(err){console.log(err)}
+      }
+      static async adviceregister(userId,createdat,advice){
+        try{
+          const par=new db({userId,createdat,advice})
           return await par.save()
   
         }catch(err){console.log(err)}
