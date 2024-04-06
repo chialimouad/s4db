@@ -15,7 +15,8 @@ advice:{
 
 createdat: {
    type: Date,
-   default: Date.now // Use default value of current date/time
+   default: Date.now ,
+   required:false
 }
 })
 
