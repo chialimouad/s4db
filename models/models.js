@@ -10,18 +10,18 @@ userId:{
 },
 email :{
    type:String,
-   required:true,
+   required:false,
    unique:true,
  
 },
 fullname :{
    type:String,
-   required:true,
+   required:false,
   
 },
 phonenumber:{
   type:Number,
-  required:true,
+  required:false,
   unique:true,
 },
 maladie:{
