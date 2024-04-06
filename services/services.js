@@ -9,9 +9,9 @@ const db=require('../models/advice')
   
         }catch(err){console.log(err)}
       }
-      static async adviceregister(userId,createdat,advice){
+      static async adviceregister(userId,advice){
         try{
-          const par=new db({userId,createdat,advice})
+          const par=new db({userId,advice})
           return await par.save()
   
         }catch(err){console.log(err)}

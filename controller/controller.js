@@ -18,8 +18,8 @@ exports.registeruser= async(req,res,next)=>{
 
 exports.registeradvice= async(req,res,next)=>{
   try{
-  const {userId,advice,createdat}=req.body
-  const usercontrol =await userserv.adviceregister(userId,advice,createdat)
+  const {userId,advice}=req.body
+  const usercontrol =await userserv.adviceregister(userId,advice)
 
   res.json({status:true,success:"user succsefully"})
   
