@@ -6,7 +6,6 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 
 
-
 exports.registeruser= async(req,res,next)=>{
     try{
     const {email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata}=req.body
@@ -15,6 +14,10 @@ exports.registeruser= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
+
+
+
+
 
 
 

@@ -60,10 +60,18 @@ moredata:{
    type:String,
    required:false,
 },
+advide:{
+   type:String,
+   required:false,
+},
 
-
+createdat: {
+   type: Date,
+   default: Date.now // Use default value of current date/time
+}
 })
 
+userschema.index({ advide: 1 }, { expireAfterSeconds: 24 * 60 * 60 });
 
 const Patients=db.model('Patient',userschema)
 module.exports=Patients
