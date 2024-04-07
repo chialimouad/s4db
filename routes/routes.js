@@ -17,6 +17,8 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 route.post('/upload', upload.single('photo'), dbcontrol.newload);
+route.get('/getimg',  dbcontrol.loadimget);
+
 //route.post('/update', dbcontrol.updateuser)
 route.get('/fetch',async (req,res)=>{
     try{

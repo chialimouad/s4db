@@ -28,6 +28,15 @@ const dbim=require('../models/imagemodel')
     }
   }
 
+  static async getAllPhotos() {
+    try {
+      const photos = await dbim.find();
+      return { success: true, photos };
+    } catch (error) {
+      console.error('Error fetching photos:', error);
+      return { success: false, message: 'Error fetching photos.' };
+    }
+  }
 
 
       static async adviceregister(userId,advice){
