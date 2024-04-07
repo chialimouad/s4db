@@ -13,20 +13,7 @@ const dbim=require('../models/imagemodel')
       }
 
 
- static  async uploadPhoto(name, data, contentType) {
-    try {
-      const photo = new dbim({
-        name,
-        data,
-        contentType
-      });
-      await photo.save();
-      return { status: true, message: 'Photo uploaded successfully.' };
-    } catch (error) {
-      console.error('Error uploading photo:', error);
-      return { status: false, message: 'Error uploading photo.' };
-    }
-  }
+
 
 
 

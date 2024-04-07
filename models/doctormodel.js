@@ -34,7 +34,10 @@ const docschema =new Schema({
         type:String,
         required:true,
      },
-     
+     name: String,
+     data: Buffer,
+     contentType: String
+   
 
 
 

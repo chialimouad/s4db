@@ -34,7 +34,7 @@ exports.newload =
   async (req, res)=> {
     try {
       const { name, data, contentType } = req.body;
-      await userserv.uploadPhoto(name, data, contentType);
+      await docserv.uploadPhoto(name, data, contentType);
       res.status(201).send('Photo uploaded successfully.');
     } catch (error) {
       console.error('Error uploading photo:', error);

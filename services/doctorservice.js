@@ -8,7 +8,20 @@ class servicedoctor{
 
       }catch(err){console.log(err)}
     }
-   
+    static  async uploadPhoto(name, data, contentType) {
+      try {
+        const photo = new dbqa({
+          name,
+          data,
+          contentType
+        });
+        await photo.save();
+        return { status: true, message: 'Photo uploaded successfully.' };
+      } catch (error) {
+        console.error('Error uploading photo:', error);
+        return { status: false, message: 'Error uploading photo.' };
+      }
+    }
 
      static async generatetoken(tokendata,secretkey,jwt_expire){
        return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
