@@ -119,7 +119,7 @@ exports.logindoc= async(req,res,next)=>{
         return res.status(400).json({msg:"incorect"})
       }
     
-    let tokendata ={id:doclogin._id,email:doclogin.email,fullname:doclogin.fullname,password:doclogin.password,phonenumber:doclogin.phonenumber,Age:doclogin.Age,Specialite:doclogin.Specialite,willaya:doclogin.willaya}
+    let tokendata ={id:doclogin._id,email:doclogin.email,fullname:doclogin.fullname,password:doclogin.password,phonenumber:doclogin.phonenumber,Age:doclogin.Age,Specialite:doclogin.Specialite,willaya:doclogin.willaya,data:doclogin.data,name:doclogin.name,contentType:doclogin.contentType}
       var token =await docserv.generatetoken(tokendata,"mouadio","1h")
     
     res.json({status:true,success:"user succsefully",token:token})
