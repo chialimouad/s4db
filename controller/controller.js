@@ -41,20 +41,7 @@ exports.newload =
       res.status(500).send('Error uploading photo.');
     }
   }
-  exports.loadimget= async (req, res) =>{
-    try {
-      const result = await userserv.getAllPhotos();
-      if (result.success) {
-        res.status(200).json(result.photos);
-      } else {
-        res.status(500).send(result.message);
-      }
-    } catch (error) {
-      console.error('Error fetching photos:', error);
-      res.status(500).send('Error fetching photos.');
-    }
-  }
-  
+
 
 
 
