@@ -93,6 +93,19 @@ exports.deleteuser= async(req,res,next)=>{
     let deleted =await userserv.deleting(id)
    res.json({status:true,success:deleted})
 }catch(err){next(err)}}
+
+exports.deletedoc= async(req,res,next)=>{
+  try{
+  const {id}=req.body
+  let deleted =await docserv.deleting(id)
+ res.json({status:true,success:deleted})
+}catch(err){next(err)}}
+exports.updateuser= async(req,res,next)=>{
+  try{
+  const {id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata}=req.body
+  let update =await userserv.updating(id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata)
+ res.json({status:true,success:update})
+}catch(err){next(err)}}
 // exports.updateuser= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body

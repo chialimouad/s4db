@@ -47,6 +47,14 @@ const dbim=require('../models/imagemodel')
   
        
       }
+      static async updating(_id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata){
+        const par=new dbqa({email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata})
+
+        const updating=await dbqa.findByIdAndUpdate({_id,par})
+        return updating
+  
+       
+      }
    
 
        

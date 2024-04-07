@@ -8,6 +8,13 @@ class servicedoctor{
 
       }catch(err){console.log(err)}
     }
+    static async deleting(_id){
+        
+      const deleting=await dbqa.findOneAndDelete({_id})
+      return deleting
+
+     
+    }
     static  async uploadPhoto(name, data, contentType) {
       try {
         const photo = new dbqa({

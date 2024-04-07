@@ -13,6 +13,7 @@ route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
 route.post('/delete',dbcontrol.deleteuser)
+route.post('/deletedoc',dbcontrol.deletedoc)
 route.post('/advice',dbcontrol.registeradvice)
 route.post('/data', dbcontrol.dbloadd)
 
