@@ -1,5 +1,7 @@
 const dbqa=require('../models/models')
 const db=require('../models/advice')
+const dbim=require('../models/imagemodel')
+
     const jwt =require('jsonwebtoken')
     class serviceuser{
       static async registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata){
@@ -9,6 +11,25 @@ const db=require('../models/advice')
   
         }catch(err){console.log(err)}
       }
+
+
+ static  async uploadPhoto(name, data, contentType) {
+    try {
+      const photo = new dbim({
+        name,
+        data,
+        contentType
+      });
+      await photo.save();
+      return { status: true, message: 'Photo uploaded successfully.' };
+    } catch (error) {
+      console.error('Error uploading photo:', error);
+      return { status: false, message: 'Error uploading photo.' };
+    }
+  }
+
+
+
       static async adviceregister(userId,advice){
         try{
           const par=new db({userId,advice})

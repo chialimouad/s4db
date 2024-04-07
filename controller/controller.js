@@ -4,6 +4,7 @@ const Jwt=require('jsonwebtoken')
 const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
+const dbqim=require('../models/imagemodel')
 
 
 exports.registeruser= async(req,res,next)=>{
@@ -29,9 +30,23 @@ exports.registeradvice= async(req,res,next)=>{
 
 
 
+exports.newload = 
+  async (req, res)=> {
+    try {
+      const { name, data, contentType } = req.body;
+      await userserv.uploadPhoto(name, data, contentType);
+      res.status(201).send('Photo uploaded successfully.');
+    } catch (error) {
+      console.error('Error uploading photo:', error);
+      res.status(500).send('Error uploading photo.');
+    }
+  }
 
 
-exports.dbload= async(req,res,next)=>{
+
+
+
+exports.dbloadd= async(req,res,next)=>{
     io.on('connection', (socket) => {
         console.log('Client connected');
       
