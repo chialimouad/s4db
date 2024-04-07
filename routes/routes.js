@@ -20,7 +20,7 @@ route.post('/data', dbcontrol.dbloadd)
 
 //route.post('/upload', upload.single('photo'), dbcontrol.newload);
 
-//route.post('/update', dbcontrol.updateuser)
+route.post('/update', dbcontrol.updateuser)
 route.get('/fetch',async (req,res)=>{
     try{
     const fetch= await dbq.find({})
