@@ -1,9 +1,9 @@
 const dbqa=require('../models/doctormodel')
 const jwt =require('jsonwebtoken')
 class servicedoctor{
-    static async registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password){
+    static async registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password,data,name,contentType){
       try{
-      const par=new dbqa({email,fullname,phonenumber,Specialite,willaya,Age,password})
+      const par=new dbqa({email,fullname,phonenumber,Specialite,willaya,Age,password,data,name,contentType})
       return await par.save()
 
       }catch(err){console.log(err)}

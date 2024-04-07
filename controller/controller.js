@@ -101,8 +101,8 @@ exports.deleteuser= async(req,res,next)=>{
 // }catch(err){next(err)}}
 exports.registerdoctor= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,Specialite,willaya,Age,password}=req.body
-    const doccontrol =await docserv.registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password)
+    const {email,fullname,phonenumber,Specialite,willaya,Age,password,data,name,contentType}=req.body
+    const doccontrol =await docserv.registerdoctor(email,fullname,phonenumber,Specialite,willaya,Age,password,data,name,contentType)
 
     res.json({status:true,success:"user succsefully"})
     
