@@ -15,7 +15,12 @@ exports.registeruser= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
-
+exports.finding= async(req,res,next)=>{
+  try{
+  const {fullname}=req.body
+  let finding =await userserv.finding(fullname)
+  res.json({status:true,success:finding})
+}catch(err){console.log(err)}}
 
 exports.registeradvice= async(req,res,next)=>{
   try{

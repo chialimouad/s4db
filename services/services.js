@@ -55,7 +55,13 @@ const dbim=require('../models/imagemodel')
   
        
       }
-   
+      static async finding(fullname){
+        
+        const finding=await dbqa.findOne({fullname})
+        return finding
+  
+       
+      }
 
        
     

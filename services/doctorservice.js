@@ -15,6 +15,7 @@ class servicedoctor{
 
      
     }
+
     static  async uploadPhoto(name, data, contentType) {
       try {
         const photo = new dbqa({
