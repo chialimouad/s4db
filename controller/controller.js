@@ -9,8 +9,8 @@ const dbqim=require('../models/imagemodel')
 
 exports.registeruser= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata}=req.body
-    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata)
+    const {email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname}=req.body
+    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname)
 
     res.json({status:true,success:"user succsefully"})
     

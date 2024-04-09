@@ -64,7 +64,10 @@ advide:{
    type:String,
    required:false,
 },
-
+docname:{
+   type:String,
+   required:false,
+},
 createdat: {
    type: Date,
    default: Date.now // Use default value of current date/time
