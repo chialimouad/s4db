@@ -109,9 +109,17 @@ exports.deletedoc= async(req,res,next)=>{
 
 
 exports.updateuser= async(req,res,next)=>{
-  
+  const { email,fullname,phonenumber,willaya,password,idpulse } = req.body; 
+
+    const newData = {};
+    if (email) newData.email = email;
+    if (fullname) newData.fullname = fullname;
+    if (phonenumber) newData.phonenumber = phonenumber;
+    if (willaya) newData.willaya = willaya;
+    if (password) newData.password = password;
+    if (idpulse) newData.idpulse = idpulse;
+
     const { id } = req.body;
-    const { newData } = req.body;
     try {
       let update =await userserv.updating(id,newData)
         if(!update)return res.status(404).json({msj:"notfound"})
