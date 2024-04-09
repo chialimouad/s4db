@@ -107,7 +107,7 @@ exports.deletedoc= async(req,res,next)=>{
 }catch(err){next(err)}}
 
 exports.updatedoctor= async(req,res,next)=>{
-  const { email,fullname,phonenumber,willaya,password,idpulse } = req.body; 
+  const { email,fullname,phonenumber,willaya,password } = req.body; 
     const { id } = req.body;
     try {
       let update =await docserv.updatedocotr(id,{email,fullname,phonenumber,willaya,password },{new:true})
