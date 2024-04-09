@@ -122,7 +122,7 @@ exports.updateuser= async(req,res,next)=>{
     const { id } = req.body;
     try {
       let update =await userserv.updating(id,newData)
-        return res.status(200).json(update);
+      res.json({status:true,success:update})
 
    
 }catch(err){ return res.status(500).json({ message: ' server error', err: err.message });
