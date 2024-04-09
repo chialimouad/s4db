@@ -106,7 +106,16 @@ exports.deletedoc= async(req,res,next)=>{
  res.json({status:true,success:deleted})
 }catch(err){next(err)}}
 
+exports.updatedoctor= async(req,res,next)=>{
+  const { email,fullname,phonenumber,willaya,password,idpulse } = req.body; 
+    const { id } = req.body;
+    try {
+      let update =await docserv.updatedocotr(id,{email,fullname,phonenumber,willaya,password },{new:true})
+      res.json({status:true,success:update})
 
+   
+}catch(err){ return res.status(500).json({ message: ' server error', err: err.message });
+}}
 
 exports.updateuser= async(req,res,next)=>{
   const { email,fullname,phonenumber,willaya,password,idpulse } = req.body; 

@@ -8,6 +8,20 @@ class servicedoctor{
 
       }catch(err){console.log(err)}
     }
+    
+    static async updatedocotr(_id,updatedata){
+
+      try {
+        const updating=await dbqa.findByIdAndUpdate(_id,updatedata,{new:true,useFindAndModify:false})
+      return updating
+      } catch (error) {
+        throw error
+      }
+
+     
+    }
+
+
     static async deleting(_id){
         
       const deleting=await dbqa.findOneAndDelete({_id})
