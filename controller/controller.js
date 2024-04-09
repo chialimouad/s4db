@@ -122,7 +122,6 @@ exports.updateuser= async(req,res,next)=>{
     const { id } = req.body;
     try {
       let update =await userserv.updating(id,newData)
-        if(!update)return res.status(404).json({msj:"notfound"})
         return res.status(200).json(update);
 
    
