@@ -17,7 +17,12 @@ route.post('/deletedoc',dbcontrol.deletedoc)
 route.post('/advice',dbcontrol.registeradvice)
 route.post('/data', dbcontrol.dbloadd)
 route.post('/finding',dbcontrol.finding)
-
+route.get('/finding',async (req,res)=>{
+  try{
+  const fetch= await dbq.find({})
+    res.status(200).json(fetch)
+  }catch(err){console.log(err)}
+})
 
 //route.post('/upload', upload.single('photo'), dbcontrol.newload);
 

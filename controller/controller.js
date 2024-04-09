@@ -105,12 +105,25 @@ exports.deletedoc= async(req,res,next)=>{
   let deleted =await docserv.deleting(id)
  res.json({status:true,success:deleted})
 }catch(err){next(err)}}
+
+
+
 exports.updateuser= async(req,res,next)=>{
-  try{
-  const {id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata}=req.body
-  let update =await userserv.updating(id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata)
- res.json({status:true,success:update})
-}catch(err){next(err)}}
+  
+    const { _id } = req.params;
+    const { newData } = req.body;
+    try {
+      let update =await userserv.updating(_id,newData)
+        if(!update)return res.status(404).json({msj:"notfound"})
+        return res.status(200).json(update);
+
+   
+}catch(err){ return res.status(500).json({ message: ' server error', err: err.message });
+}}
+
+
+
+
 // exports.updateuser= async(req,res,next)=>{
 //     try{
 //     const {email,fullname,phonenumber,idpulse,willaya,password,Age,Grp,maladie}=req.body

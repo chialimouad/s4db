@@ -47,11 +47,14 @@ const dbim=require('../models/imagemodel')
   
        
       }
-      static async updating(_id,email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata){
-        const par=new dbqa({email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata})
+      static async updating(_id,updatedata){
 
-        const updating=await dbqa.findByIdAndUpdate({_id,par})
+        try {
+          const updating=await dbqa.findByIdAndUpdate(_id,updatedata,{new:true,useFindAndModify:false})
         return updating
+        } catch (error) {
+          throw error
+        }
   
        
       }
