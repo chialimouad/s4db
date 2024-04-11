@@ -18,8 +18,8 @@ exports.registeruser= async(req,res,next)=>{
 }catch(err){console.log(err)}}
 exports.registeruseralone= async(req,res,next)=>{
   try{
-  const {email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata}=req.body
-  const usercontrol =await userserv.registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata)
+  const {email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata}=req.body
+  const usercontrol =await userserv.registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata)
 
   res.json({status:true,success:"user succsefully"})
   

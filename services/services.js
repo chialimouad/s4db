@@ -12,9 +12,9 @@ const dbsignup=require('../models/usersignup')
   
         }catch(err){console.log(err)}
       }
-      static async registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata){
+      static async registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata){
         try{
-          const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata})
+          const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata})
           return await par.save()
   
         }catch(err){console.log(err)}
