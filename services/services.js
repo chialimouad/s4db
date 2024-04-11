@@ -1,6 +1,7 @@
 const dbqa=require('../models/models')
 const db=require('../models/advice')
 const dbim=require('../models/imagemodel')
+const dbsignup=require('../models/usersignup')
 
     const jwt =require('jsonwebtoken')
     class serviceuser{
@@ -11,7 +12,13 @@ const dbim=require('../models/imagemodel')
   
         }catch(err){console.log(err)}
       }
-
+      static async registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata){
+        try{
+          const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata})
+          return await par.save()
+  
+        }catch(err){console.log(err)}
+      }
 
 
 
