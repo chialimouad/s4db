@@ -5,6 +5,7 @@ const bcrypted = require('bcrypt')
 const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 const dbqim=require('../models/imagemodel')
+const dbalone=require('../models/usersignup')
 
 
 exports.registeruser= async(req,res,next)=>{
@@ -14,6 +15,14 @@ exports.registeruser= async(req,res,next)=>{
 
     res.json({status:true,success:"user succsefully"})
     
+}catch(err){console.log(err)}}
+exports.registeruseralone= async(req,res,next)=>{
+  try{
+  const {email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata}=req.body
+  const usercontrol =await userserv.registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,idpulse,Gender,mld,moredata)
+
+  res.json({status:true,success:"user succsefully"})
+  
 }catch(err){console.log(err)}}
 exports.finding= async(req,res,next)=>{
   try{
@@ -73,7 +82,21 @@ exports.dbloadd= async(req,res,next)=>{
   }
 
 
+  exports.loginuseralone= async(req,res,next)=>{
+    try{
+    const {email,password}=req.body
+    const userlogin =await dbalone.findOne({email})
+    if(!userlogin){
+        return res.status(400).json({msg:"Email Exist"})
 
+      }
+      if(!(password==userlogin.password)){
+        return res.status(400).json({msg:"incorect"})
+      }
+      let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,}
+      var token =await userserv.generatetoken(tokendata,"patients","10h")
+      res.json({status:true,success:"user succsefully",token:token})
+}catch(err){console.log(err)}}
 
 
 
