@@ -14,7 +14,7 @@ createdat: {
    default: Date.now ,
 }
 })
-Adviceschema.index({ advice: 1 }, { expireAfterSeconds: 24 * 60 * 60 });
+//Adviceschema.index({ advice: 1 }, { expireAfterSeconds: 24 * 60 * 60 });
 
 
 const Advice=db.model('advice',Adviceschema)
