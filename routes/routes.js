@@ -17,7 +17,7 @@ route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
 route.get('/getadvice',async (req,res)=>{
   try{
-  const fetch= await dbadvie.find({advice})
+  const fetch= await dbadvie.find({})
     res.status(200).json(fetch)
   }catch(err){console.log(err)}
 }
