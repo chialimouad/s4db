@@ -24,13 +24,7 @@ const dbsignup=require('../models/usersignup')
 
 
 
-      static async getadvice(advice){
-        try{
-        const goti=await db.find({advice})
-        return goti
   
-        }catch(err){console.log(err)}
-      }
       static async adviceregister(advice){
         try{
           const par=new db({advice})
