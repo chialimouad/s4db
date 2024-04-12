@@ -204,12 +204,7 @@ exports.getdatacontroller=async(req,res,next)=>{
   res.json({status:true,success:getdatafrom})
 
 }
-exports.getadvicecontroller=async(req,res,next)=>{
-  const {}=req.body
-  let getdatafrom =await userserv.getadvice()
-res.json({status:true,success:getdatafrom})
 
-}
 // exports.getdatacontrollerspecial=async(req,res,next)=>{
 //     const {email}=req.body
 //     let getdatafrom =await userserv.getdataspecial(email)
