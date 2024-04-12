@@ -15,7 +15,7 @@ route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
 route.post('/getuser',dbcontrol.getdatacontroller)
-route.get('/getdata',async (req,res)=>{
+route.get('/getadvice',async (req,res)=>{
   try{
   const fetch= await dbadvie.find({advice})
     res.status(200).json(fetch)
