@@ -39,7 +39,13 @@ const dbsignup=require('../models/usersignup')
            
         }catch(err){console.log(err)}
       }
+      static async getadvice(){
+        try{
+        const goti=await db.find({})
+        return goti
   
+        }catch(err){console.log(err)}
+      }
        static async getdata(userId){
         try{
         const goti=await dbqa.find({userId})
