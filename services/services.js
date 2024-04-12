@@ -24,10 +24,16 @@ const dbsignup=require('../models/usersignup')
 
 
 
-
-      static async adviceregister(userId,advice){
+      static async getadvice(advice){
         try{
-          const par=new db({userId,advice})
+        const goti=await db.find({advice})
+        return goti
+  
+        }catch(err){console.log(err)}
+      }
+      static async adviceregister(advice){
+        try{
+          const par=new db({advice})
           return await par.save()
   
         }catch(err){console.log(err)}

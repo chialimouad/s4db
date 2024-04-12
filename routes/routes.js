@@ -18,6 +18,7 @@ route.post('/getuser',dbcontrol.getdatacontroller)
 route.post('/delete',dbcontrol.deleteuser)
 route.post('/deletedoc',dbcontrol.deletedoc)
 route.post('/advice',dbcontrol.registeradvice)
+
 route.post('/data', dbcontrol.dbloadd)
 route.post('/updatedoc', dbcontrol.updatedoctor)
 route.post('/finding',dbcontrol.finding)
