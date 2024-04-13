@@ -39,9 +39,9 @@ const dbsignup=require('../models/usersignup')
            
         }catch(err){console.log(err)}
       }
-      static async getadvice(){
+      static async getadvice(advice){
         try{
-        const goti=await db.find({})
+        const goti=await db.find({advice})
         return goti
   
         }catch(err){console.log(err)}
