@@ -33,8 +33,8 @@ exports.finding= async(req,res,next)=>{
 
 exports.registeradvice= async(req,res,next)=>{
   try{
-  const {advice}=req.body
-  const usercontrol =await userserv.adviceregister(advice)
+  const {advice,userId,docname}=req.body
+  const usercontrol =await userserv.adviceregister(advice,userId,docname)
 
   res.json({status:true,success:"user succsefully"})
   
