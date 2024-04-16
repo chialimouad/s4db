@@ -60,17 +60,26 @@ exports.newload =
 
 
 exports.dbloadd= async(req,res,next)=>{
-  io.on('connection', (socket) => {
-    console.log('A client connected');
+  wss.on('connection', function connection(ws) {
+    console.log('Client connected');
   
-    socket.on('disconnect', () => {
-      console.log('A client disconnected');
-    });
-  
-    socket.on('bpm_data', (data) => {
-      console.log('Received BPM data:', data);
+    ws.on('message', function incoming(message) {
+      console.log('Received: %s', message);
+      saveBPMDataToDatabase(parseInt(message)); // Parse the message and save it to MongoDB
     });
   });
+  
+  // Save BPM data to MongoDB
+  function saveBPMDataToDatabase(bpm) {
+    const newData = new BPM({ bpm: bpm });
+    newData.save((err, result) => {
+      if (err) {
+        console.error('Error saving BPM data:', err);
+      } else {
+        console.log('BPM data saved to MongoDB:', result);
+      }
+    });
+  }
   }
 
 
