@@ -1,10 +1,16 @@
 const dbqa=require('../models/models')
 const db=require('../models/advice')
+const dbbpm=require('../models/bpm')
+
 const dbim=require('../models/imagemodel')
 const dbsignup=require('../models/usersignup')
 
     const jwt =require('jsonwebtoken')
     class serviceuser{
+      static async bpmdata (bpm)  {
+        const newBpmData = new dbbpm({ bpm });
+        await newBpmData.save();
+      }
       static async registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname){
         try{
           const par=new dbqa({email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname})
@@ -32,13 +38,7 @@ const dbsignup=require('../models/usersignup')
   
         }catch(err){console.log(err)}
       }
-      static async getbpm(Bpm,pulseid){
-        try{
-        const bpmg=new dbqa({Bpm,pulseid})
-        return await bpmg.save()
-           
-        }catch(err){console.log(err)}
-      }
+   
       static async getadvice(){
         try{
         const goti=await db.find({})

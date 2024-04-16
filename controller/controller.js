@@ -6,6 +6,7 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 const dbqim=require('../models/imagemodel')
 const dbalone=require('../models/usersignup')
+const dbbpm=require('../models/bpm')
 
 
 exports.registeruser= async(req,res,next)=>{
@@ -59,29 +60,17 @@ exports.newload =
 
 
 
-exports.dbloadd= async(req,res,next)=>{
-  wss.on('connection', function connection(ws) {
-    console.log('Client connected');
-  
-    ws.on('message', function incoming(message) {
-      console.log('Received: %s', message);
-      saveBPMDataToDatabase(parseInt(message)); // Parse the message and save it to MongoDB
-    });
-  });
-  
-  // Save BPM data to MongoDB
-  function saveBPMDataToDatabase(bpm) {
-    const newData = new BPM({ bpm: bpm });
-    newData.save((err, result) => {
-      if (err) {
-        console.error('Error saving BPM data:', err);
-      } else {
-        console.log('BPM data saved to MongoDB:', result);
-      }
-    });
-  }
-  }
-
+  exports.saveBpmData = async (req, res) => {
+    try {
+      const { bpm } = req.body;
+      const newBpmData = new dbbpm({ bpm });
+      await newBpmData.save();
+      res.status(201).json({ message: 'BPM data saved successfully' });
+    } catch (error) {
+      console.error('Error saving BPM data:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
 
   exports.loginuseralone= async(req,res,next)=>{
     try{
