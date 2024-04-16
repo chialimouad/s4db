@@ -60,25 +60,17 @@ exports.newload =
 
 
 exports.dbloadd= async(req,res,next)=>{
-    io.on('connection', (socket) => {
-        console.log('Client connected');
-      
-        // Sensor data handler
-        socket.on('sensorData','pulseid', async (data,pulseid) => {
-          console.log('Received sensor data:', data,'id is :',pulseid);
-      
-          try {
-             const loaddata=userserv.getbpm(data,pulseid)
-             res.json({status:true,success:"user succsefully"})
-
-          }catch(err){console.log(err)}
-        });
-      
-        // Handle disconnection
-        socket.on('disconnect', () => {
-          console.log('Client disconnected');
-        });
-      });
+  io.on('connection', (socket) => {
+    console.log('A client connected');
+  
+    socket.on('disconnect', () => {
+      console.log('A client disconnected');
+    });
+  
+    socket.on('bpm_data', (data) => {
+      console.log('Received BPM data:', data);
+    });
+  });
   }
 
 
