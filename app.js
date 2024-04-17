@@ -7,10 +7,8 @@ const http = require('http');
 
 const app = express();
 
-const heartbeatRouter = require('./routes/routebpm');
 const PORT = process.env.PORT || 3000;
 
-app.use('/heartbeat', heartbeatRouter);
 
 app.use(bodyParser.json());
 app.use(cors({ origin: '*' }));
