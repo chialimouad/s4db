@@ -1,15 +1,16 @@
 // controllers/HeartbeatController.js
-const HeartbeatModel = require('../models/bpm');
+const Heartbeat = require('../models/bpm');
 
 class HeartbeatController {
-  constructor() {
-    this.heartbeatModel = new HeartbeatModel('mongodb+srv://mouadchiali:mouadchiali@clustertestprojet.n7r4egf.mongodb.net/', 'doctors', 'heartbeats');
-  }
-
   async postHeartbeat(req, res) {
-    const { value } = req.body;
-    await this.heartbeatModel.insertHeartbeat(value);
-    res.sendStatus(200);
+    try {
+      const { value } = req.body;
+      await Heartbeat.create({ value });
+      res.sendStatus(200);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
   }
 }
 
