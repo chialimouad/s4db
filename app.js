@@ -4,20 +4,20 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const userRoutes = require('./routes/routes');
 const http = require('http');
-const WebSocket = require('ws');
-const controller = require('./controller/bpmcontr');
 
 const app = express();
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
 
-// WebSocket event handler
-wss.on('connection', controller.handleWebSocketConnection);
+const heartbeatRouter = require('./routes/routebpm');
+const PORT = process.env.PORT || 3000;
+
+app.use('/heartbeat', heartbeatRouter);
 
 app.use(bodyParser.json());
 app.use(cors({ origin: '*' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/12', userRoutes);
-
-module.exports = server;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+module.exports = app;

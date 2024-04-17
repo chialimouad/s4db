@@ -1,19 +1,16 @@
-// controller.js
+// controllers/HeartbeatController.js
+const HeartbeatModel = require('../models/bpm');
 
-function handleWebSocketConnection(ws) {
-    console.log('WebSocket connected');
-  
-    ws.on('message', function incoming(message) {
-      console.log('Received message:', message);
-      // Handle incoming message here
-    });
-  
-    ws.on('close', function close() {
-      console.log('WebSocket disconnected');
-    });
+class HeartbeatController {
+  constructor() {
+    this.heartbeatModel = new HeartbeatModel('mongodb+srv://mouadchiali:mouadchiali@clustertestprojet.n7r4egf.mongodb.net/', 'doctors', 'heartbeats');
   }
-  
-  module.exports = {
-    handleWebSocketConnection
-  };
-  
+
+  async postHeartbeat(req, res) {
+    const { value } = req.body;
+    await this.heartbeatModel.insertHeartbeat(value);
+    res.sendStatus(200);
+  }
+}
+
+module.exports = new HeartbeatController();
