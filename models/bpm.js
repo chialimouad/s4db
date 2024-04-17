@@ -1,19 +1,35 @@
+const mongoose = require('mongoose');
 
-const { MongoClient } = require('mongodb');
+// Define a schema for the heartbeat data
+const heartbeatSchema = new mongoose.Schema({
+  value: Number,
+  timestamp: { type: Date, default: Date.now }
+});
+
+// Create a Mongoose model based on the schema
+const Heartbeat = mongoose.model('Heartbeat', heartbeatSchema);
 
 class HeartbeatModel {
-  constructor(uri, dbName, collectionName) {
+  constructor(uri) {
     this.uri = uri;
-    this.dbName = dbName;
-    this.collectionName = collectionName;
   }
 
   async insertHeartbeat(value) {
-    const client = await MongoClient.connect(this.uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    const db = client.db(this.dbName);
-    const collection = db.collection(this.collectionName);
-    await collection.insertOne({ value, timestamp: new Date() });
-    client.close();
+    try {
+      // Connect to MongoDB
+      await mongoose.connect(this.uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+      // Create a new heartbeat document
+      const newHeartbeat = new Heartbeat({ value });
+
+      // Save the heartbeat document to the database
+      await newHeartbeat.save();
+
+      // Close the connection
+      mongoose.connection.close();
+    } catch (error) {
+      console.error('Error inserting heartbeat:', error);
+    }
   }
 }
 

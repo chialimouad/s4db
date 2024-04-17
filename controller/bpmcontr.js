@@ -3,7 +3,7 @@ const HeartbeatModel = require('../models/bpm');
 
 class HeartbeatController {
   constructor() {
-    this.heartbeatModel = new HeartbeatModel('mongodb+srv://mouadchiali:mouadchiali@clustertestprojet.n7r4egf.mongodb.net/', 'Hbpm', 'heartbeats');
+    this.heartbeatModel = new HeartbeatModel('mongodb+srv://mouadchiali:mouadchiali@clustertestprojet.n7r4egf.mongodb.net/', 'doctors', 'heartbeats');
   }
 
   async postHeartbeat(req, res) {
