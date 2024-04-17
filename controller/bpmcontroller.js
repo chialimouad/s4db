@@ -1,13 +1,15 @@
-const pulseService = require('../services/servicesbpm');
+// controllers/websocketController.js
+const WebSocketService = require('../services/servicesbpm');
 
-async function handlePulseData(ws, message) {
-  try {
-    await pulseService.savePulseData(message);
-  } catch (error) {
-    console.error('Error handling pulse data:', error);
-    // Optionally, you can throw the error to propagate it further up the call stack
-    throw error;
+class WebSocketController {
+  constructor() {
+    this.websocketService = new WebSocketService();
+  }
+
+  handleMessage(message) {
+    console.log('Received message from client:', message);
+    // Handle message as needed
   }
 }
 
-module.exports = { handlePulseData };
+module.exports = WebSocketController;

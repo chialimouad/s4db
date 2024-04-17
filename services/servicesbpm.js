@@ -1,13 +1,21 @@
-// services/pulseService.js
-const db = require('../models/bpm');
-
-async function savePulseData(value) {
-  try {
-    await db.collection('pulseData').insertOne({ value: parseInt(value) });
-    console.log('Pulse data saved to MongoDB:', value);
-  } catch (error) {
-    console.error('Error saving pulse data to MongoDB:', error);
+// services/websocketService.js
+class WebSocketService {
+    constructor(websocketModel) {
+      this.websocketModel = websocketModel;
+    }
+  
+    addClient(client) {
+      this.websocketModel.addClient(client);
+    }
+  
+    removeClient(client) {
+      this.websocketModel.removeClient(client);
+    }
+  
+    broadcastData(data) {
+      this.websocketModel.broadcastData(data);
+    }
   }
-}
-
-module.exports = { savePulseData };
+  
+  module.exports = WebSocketService;
+  
