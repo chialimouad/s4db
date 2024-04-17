@@ -2,6 +2,8 @@ const dbqa=require('../models/models')
 const db=require('../models/advice')
 const dbim=require('../models/imagemodel')
 const dbsignup=require('../models/usersignup')
+const DataModel=require('../models/bpm')
+
 
     const jwt =require('jsonwebtoken')
     class serviceuser{
@@ -85,6 +87,18 @@ const dbsignup=require('../models/usersignup')
            return jwt.sign(tokendata,secretkey,{expiresIn:jwt_expire})
     
          }
+
+         static async saveData(sensorValue) {
+          try {
+            const newData = new DataModel({ sensorValue });
+            await newData.save();
+            console.log('Data saved to MongoDB:', newData);
+            return newData;
+          } catch (err) {
+            console.error('Error saving data to MongoDB:', err);
+            throw err;
+          }
+        }
        }
        
 module.exports=serviceuser

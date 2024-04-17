@@ -202,6 +202,18 @@ exports.getadvicecontroller=async(req,res,next)=>{
 res.json({status:true,success:getdatafrom})
 
 }
+
+
+exports.saved=  async (req, res)=> {
+  try {
+    const sensorValue = req.body.sensorValue;
+    const newData = await userserv.saveData(sensorValue);
+    res.sendStatus(200);
+  } catch (err) {
+    console.error('Error saving data:', err);
+    res.sendStatus(500);
+  }
+}
 // exports.getdatacontrollerspecial=async(req,res,next)=>{
 //     const {email}=req.body
 //     let getdatafrom =await userserv.getdataspecial(email)

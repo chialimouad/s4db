@@ -10,6 +10,7 @@ const { deleteAdvice } = require('../controller/deleteadvice');
 route.post('/registeruser',dbcontrol.registeruser)
 route.post('/registeruseralone',dbcontrol.registeruseralone)
 route.post('/loginuseralone',dbcontrol.loginuseralone)
+route.post('/data', dbcontrol.saved);
 
 route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
