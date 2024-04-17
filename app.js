@@ -3,7 +3,7 @@ const app=require('./index')
 
 const userfecth = require('./controller/controller')
 
-var port = process.env.PORT || 3000 
+var port = process.env.PORT || 5555 
 app.get('/1',(req,res)=>{
     res.send("userfecth.fetch")
 })

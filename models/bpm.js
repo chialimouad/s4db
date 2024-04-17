@@ -1,25 +1,8 @@
-// models/websocketModel.js
-class WebSocketModel {
-    constructor() {
-      this.clients = new Set();
-    }
-  
-    addClient(client) {
-      this.clients.add(client);
-    }
-  
-    removeClient(client) {
-      this.clients.delete(client);
-    }
-  
-    broadcastData(data) {
-      this.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-          client.send(data);
-        }
-      });
-    }
-  }
-  
-  module.exports = WebSocketModel;
-  
+const db=require('../config/db')
+const mongoose = require('mongoose');
+
+const DataSchema = new mongoose.Schema({
+  sensorValue: Number
+});
+
+module.exports = mongoose.model('Data', DataSchema);
