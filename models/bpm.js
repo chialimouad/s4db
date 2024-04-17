@@ -5,4 +5,4 @@ const DataSchema = new mongoose.Schema({
   sensorValue: Number
 });
 
-module.exports = mongoose.model('Data', DataSchema);
+module.exports = mongoose.model('bpm', DataSchema);
