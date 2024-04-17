@@ -1,8 +1,6 @@
 const route=require('express').Router()
 const dbcontrol=require('../controller/controller')
 const dbq=require('../models/models')
-const dbqbpm=require('../models/bpm')
-
 const dbadvie=require('../models/advice')
 const multer  = require('multer');
 const dbqdoc=require('../models/doctormodel')
@@ -27,14 +25,7 @@ route.post('/delete',dbcontrol.deleteuser)
 route.post('/deletedoc',dbcontrol.deletedoc)
 route.post('/advice',dbcontrol.registeradvice)
 
-route.post('/data', dbcontrol.saveBpmData)
-route.get('/data', async (req,res)=>{
-  try{
-  const fetch= await dbqbpm.find({})
-    res.status(200).json(fetch)
-  }catch(err){console.log(err)}
-})
-
+route.post('/data', dbcontrol.dbloadd)
 route.post('/updatedoc', dbcontrol.updatedoctor)
 route.post('/finding',dbcontrol.finding)
 route.get('/finding',async (req,res)=>{

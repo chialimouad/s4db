@@ -6,7 +6,6 @@ const dbq=require('../models/models')
 const dbqdoc=require('../models/doctormodel')
 const dbqim=require('../models/imagemodel')
 const dbalone=require('../models/usersignup')
-const dbbpm=require('../models/bpm')
 
 
 exports.registeruser= async(req,res,next)=>{
@@ -60,17 +59,20 @@ exports.newload =
 
 
 
-  exports.saveBpmData = async (req, res) => {
-    try {
-      const { bpm } = req.body;
-      const newBpmData = new dbbpm({ bpm });
-      await newBpmData.save();
-      res.status(201).json({ message: 'BPM data saved successfully' });
-    } catch (error) {
-      console.error('Error saving BPM data:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  };
+exports.dbloadd= async(req,res,next)=>{
+  io.on('connection', (socket) => {
+    console.log('A client connected');
+  
+    socket.on('disconnect', () => {
+      console.log('A client disconnected');
+    });
+  
+    socket.on('bpm_data', (data) => {
+      console.log('Received BPM data:', data);
+    });
+  });
+  }
+
 
   exports.loginuseralone= async(req,res,next)=>{
     try{

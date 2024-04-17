@@ -1,8 +1,13 @@
-const mongoose=require('mongoose')
-const dbdoc=require('../config/dbdoctor')
-const BpmSchema = new mongoose.Schema({
-    bpm: Number,
-    timestamp: { type: Date, default: Date.now }
-  });
-  
-  module.exports = mongoose.model('Bpm', BpmSchema);
+// models/pulseData.js
+const mongoose = require('mongoose');
+
+const pulseDataSchema = new mongoose.Schema({
+  value: {
+    type: Number,
+    required: true
+  }
+});
+
+const PulseData = mongoose.model('PulseData', pulseDataSchema);
+
+module.exports = PulseData;
