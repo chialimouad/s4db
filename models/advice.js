@@ -22,6 +22,7 @@ const Adviceschema =new Schema({
    }
 })
 Adviceschema.index({ advice: 1 }, { expireAfterSeconds: 24 * 60 * 60 });
+Adviceschema.index({ docname: 1 }, { expireAfterSeconds: 24 * 60 * 60 });
 
 
 const Advice=db.model('advice',Adviceschema)
