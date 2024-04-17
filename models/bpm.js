@@ -5,4 +5,6 @@ const DataSchema = new mongoose.Schema({
   sensorValue: Number
 });
 
-module.exports = mongoose.model('bpm', DataSchema);
+
+const Bpm=db.model('Bpms',DataSchema)
+module.exports=Bpm
