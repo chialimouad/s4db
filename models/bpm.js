@@ -2,11 +2,15 @@ const db=require('../config/dbbpm')
 const mongoose = require('mongoose');
 
 const heartbeatSchema = new mongoose.Schema({
-  value: Number,
+
   timestamp: {
     type: Date,
     default: Date.now
-  }
+  },
+  value:{
+    type:Number,
+    required:true,
+ },
 });
 
 
