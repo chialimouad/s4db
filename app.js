@@ -12,7 +12,7 @@ const initWebSocketServer = require('./routes/routebpm');
 const server = http.createServer(app);
 connectToDatabase();
 initWebSocketServer(server);
-const PORT = process.env.PORT || 3000;
+const PORT = 8080;
 
 
 app.use(bodyParser.json());
