@@ -14,6 +14,13 @@ const DataModel=require('../models/bpm')
   
         }catch(err){console.log(err)}
       }
+      static async dataregister(value){
+        try{
+          const par=new DataModel({value})
+          return await par.save()
+  
+        }catch(err){console.log(err)}
+      }
       static async registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata){
         try{
           const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata})

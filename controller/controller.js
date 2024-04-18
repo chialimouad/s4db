@@ -16,6 +16,15 @@ exports.registeruser= async(req,res,next)=>{
     res.json({status:true,success:"user succsefully"})
     
 }catch(err){console.log(err)}}
+
+exports.dataregister= async(req,res,next)=>{
+  try{
+  const {value}=req.body
+  const datacontrol =await userserv.dataregister(value)
+
+  res.json({status:true,success:datacontrol})
+  
+}catch(err){console.log(err)}}
 exports.registeruseralone= async(req,res,next)=>{
   try{
   const {email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata}=req.body

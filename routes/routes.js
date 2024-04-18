@@ -14,7 +14,7 @@ route.post('/loginuseralone',dbcontrol.loginuseralone)
 route.post('/data', dbcontrol.saved);
 
 route.post('/heartbeat', 
-  heartbeatController.postHeartbeat);
+  dbcontrol.dataregister);
 route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
