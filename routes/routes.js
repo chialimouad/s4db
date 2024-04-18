@@ -4,6 +4,8 @@ const dbq=require('../models/models')
 const dbadvie=require('../models/advice')
 const multer  = require('multer');
 const dbqdoc=require('../models/doctormodel')
+const dbbpm=require('../models/bpm')
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 route.post('/registeruser',dbcontrol.registeruser)
@@ -12,6 +14,12 @@ route.post('/loginuseralone',dbcontrol.loginuseralone)
 route.post('/data', dbcontrol.saved);
 
 route.post('/heartbeat', dbcontrol.datareg)
+route.get('/getbpm',async (req,res)=>{
+  try{
+  const fetch= await dbbpm.find({})
+    res.status(200).json(fetch)
+  }catch(err){console.log(err)}
+})
 route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
