@@ -9,7 +9,7 @@ const bpmschema =new Schema({
         default: Date.now ,
      },
     valuebpm:{
-        type:String,
+        type:Number,
         required:true,
      },
    
