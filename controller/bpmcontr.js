@@ -1,17 +1,15 @@
-// controllers/HeartbeatController.js
-const Heartbeat = require('../models/bpm');
+const valuebpmService = require('../services/bpmservices');
 
-class HeartbeatController {
-  async postHeartbeat(req, res) {
-    try {
-      const { value } = req.body;
-      await Heartbeat.create({ value });
-      res.sendStatus(200);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Internal Server Error');
-    }
+async function handleValueBPM(valuebpm) {
+  try {
+    // Save valuebpm in the database
+    const newValueBPM = await valuebpmService.saveValueBPM(valuebpm);
+    return newValueBPM;
+  } catch (error) {
+    throw error;
   }
 }
 
-module.exports = new HeartbeatController();
+module.exports = {
+  handleValueBPM
+};
