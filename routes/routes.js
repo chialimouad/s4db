@@ -6,14 +6,12 @@ const multer  = require('multer');
 const dbqdoc=require('../models/doctormodel')
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-const heartbeatController = require('../controller/bpmcontr');
-const { deleteAdvice } = require('../controller/deleteadvice');
 route.post('/registeruser',dbcontrol.registeruser)
 route.post('/registeruseralone',dbcontrol.registeruseralone)
 route.post('/loginuseralone',dbcontrol.loginuseralone)
 route.post('/data', dbcontrol.saved);
 
-route.post('/heartbeat', dbcontrol.dataregister)
+route.post('/heartbeat', dbcontrol.datareg)
 route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)

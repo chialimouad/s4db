@@ -14,9 +14,9 @@ const DataModel=require('../models/bpm')
   
         }catch(err){console.log(err)}
       }
-      static async dataregister(value){
+      static async dataregister(valuebpm){
         try{
-          const par=new DataModel({value})
+          const par=new DataModel({valuebpm})
           return await par.save()
   
         }catch(err){console.log(err)}

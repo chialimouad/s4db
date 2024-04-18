@@ -17,12 +17,12 @@ exports.registeruser= async(req,res,next)=>{
     
 }catch(err){console.log(err)}}
 
-exports.dataregister= async(req,res,next)=>{
+exports.datareg= async(req,res,next)=>{
   try{
-  const {value}=req.body
-  const datacontrol =await userserv.dataregister(value)
+  const {valuebpm}=req.body
+  const bpmcontrol =await userserv.dataregister(valuebpm)
 
-  res.json({status:true,success:"user succsefully"})
+  res.json({status:true,success:"user succsefully",bpmcontrol:bpmcontrol})
   
 }catch(err){console.log(err)}}
 exports.registeruseralone= async(req,res,next)=>{
