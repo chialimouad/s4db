@@ -13,8 +13,7 @@ route.post('/registeruseralone',dbcontrol.registeruseralone)
 route.post('/loginuseralone',dbcontrol.loginuseralone)
 route.post('/data', dbcontrol.saved);
 
-route.post('/heartbeat', 
-  dbcontrol.dataregister);
+route.post('/heartbeat', dbcontrol.dataregister)
 route.post('/registerdoctor',upload.single('photo'),dbcontrol.registerdoctor)
 route.post('/logindoc',dbcontrol.logindoc)
 route.post('/loginuser',dbcontrol.loginuser)
