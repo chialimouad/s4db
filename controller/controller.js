@@ -22,7 +22,7 @@ exports.dataregister= async(req,res,next)=>{
   const {value}=req.body
   const datacontrol =await userserv.dataregister(value)
 
-  res.json({status:true,success:datacontrol})
+  res.json({status:true,success:"user succsefully"})
   
 }catch(err){console.log(err)}}
 exports.registeruseralone= async(req,res,next)=>{
