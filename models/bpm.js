@@ -1,20 +1,11 @@
 
-const mongoose=require('mongoose')
-const dbdoc=require('../config/dbbpm')
-const { Schema }=mongoose
-const bpmschema =new Schema({
- 
-    createdat: {
-        type: Date,
-        default: Date.now ,
-     },
-    valuebpm:{
-        type:Number,
-        required:true,
-     },
-   
-})
+const mongoose = require('mongoose');
 
+const patientDataSchema = new mongoose.Schema({
+  patientID: String,
+  sensor: String,
+  value: Number,
+  timestamp: { type: Date, default: Date.now }
+});
 
-const Heartbeat=dbdoc.model('Heartbeat',bpmschema)
-module.exports=Heartbeat
+module.exports = mongoose.model('PatientData', patientDataSchema);
