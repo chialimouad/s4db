@@ -53,6 +53,12 @@ route.get('/fetch',async (req,res)=>{
       res.status(200).json(fetch)
     }catch(err){console.log(err)}
   })
+  route.get('/fetch1',async (req,res)=>{
+    try{
+    const fetch= await dbq.find({idpulse})
+      res.status(200).json(fetch)
+    }catch(err){console.log(err)}
+  })
   route.get('/fetchadvice',async (req,res)=>{
     try{
     const fetch= await dbadvie.find({})
