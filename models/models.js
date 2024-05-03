@@ -46,7 +46,8 @@ Grp:{
 },
 idpulse:{
    type:String,
-   required:false,
+   required:true,
+   unique:true
 },
 Gender:{
    type:String,
