@@ -32,7 +32,15 @@ willaya:{
    type:String,
    required:false,
 },
-Age:{
+day:{
+   type:Number,
+   required:false,
+},
+month:{
+   type:Number,
+   required:false,
+},
+year:{
    type:Number,
    required:false,
 },

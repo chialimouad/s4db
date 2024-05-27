@@ -10,8 +10,8 @@ const dbalone=require('../models/usersignup')
 
 exports.registeruser= async(req,res,next)=>{
     try{
-    const {email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname}=req.body
-    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname)
+    const {email,fullname,phonenumber,maladie,willaya,day,month,year,password,userId,Grp,idpulse,Gender,mld,moredata,docname}=req.body
+    const usercontrol =await userserv.registeruser(email,fullname,phonenumber,maladie,willaya,day,month,year,password,userId,Grp,idpulse,Gender,mld,moredata,docname)
 
     res.json({status:true,success:"user succsefully"})
     
@@ -27,8 +27,8 @@ exports.datareg= async(req,res,next)=>{
 }catch(err){console.log(err)}}
 exports.registeruseralone= async(req,res,next)=>{
   try{
-  const {email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata}=req.body
-  const usercontrol =await userserv.registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata)
+  const {email,fullname,phonenumber,maladie,willaya,day,month,year,password,Grp,Gender,mld,moredata}=req.body
+  const usercontrol =await userserv.registeruseralone(email,fullname,phonenumber,maladie,willaya,day,month,year,password,Grp,Gender,mld,moredata)
 
   res.json({status:true,success:"user succsefully"})
   
@@ -94,7 +94,7 @@ exports.dbloadd= async(req,res,next)=>{
       if(!(password==userlogin.password)){
         return res.status(400).json({msg:"incorect"})
       }
-      let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,Age:userlogin.Age,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,}
+      let tokendata ={id:userlogin._id,email:userlogin.email,fullname:userlogin.fullname,password:userlogin.password,phonenumber:userlogin.phonenumber,day:userlogin.day,month:userlogin.month,year:userlogin.year,Grp:userlogin.Grp,willaya:userlogin.willaya,maladie:userlogin.maladie,idpulse:userlogin.idpulse,}
       var token =await userserv.generatetoken(tokendata,"patients","10h")
       res.json({status:true,success:"user succsefully",token:token})
 }catch(err){console.log(err)}}

@@ -7,9 +7,9 @@ const DataModel=require('../models/bpm')
 
     const jwt =require('jsonwebtoken')
     class serviceuser{
-      static async registeruser(email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname){
+      static async registeruser(email,fullname,phonenumber,maladie,willaya,day,month,year,password,userId,Grp,idpulse,Gender,mld,moredata,docname){
         try{
-          const par=new dbqa({email,fullname,phonenumber,maladie,willaya,Age,password,userId,Grp,idpulse,Gender,mld,moredata,docname})
+          const par=new dbqa({email,fullname,phonenumber,maladie,willaya,day,month,year,password,userId,Grp,idpulse,Gender,mld,moredata,docname})
           return await par.save()
   
         }catch(err){console.log(err)}
@@ -21,9 +21,9 @@ const DataModel=require('../models/bpm')
   
         }catch(err){console.log(err)}
       }
-      static async registeruseralone(email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata){
+      static async registeruseralone(email,fullname,phonenumber,maladie,willaya,day,month,year,password,Grp,Gender,mld,moredata){
         try{
-          const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,Age,password,Grp,Gender,mld,moredata})
+          const par=new dbsignup({email,fullname,phonenumber,maladie,willaya,day,month,year,password,Grp,Gender,mld,moredata})
           return await par.save()
   
         }catch(err){console.log(err)}
